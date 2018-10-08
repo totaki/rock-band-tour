@@ -44,5 +44,12 @@ RUN pip3 install --upgrade pip \
     buildozer \
     cython==0.25.2
 
+RUN sudo wget -q https://dl.google.com/android/repository/tools_r25.2.3-linux.zip
+RUN sudo mkdir /home/user/android-sdk 
+RUN sudo unzip tools_r25.2.3-linux.zip -d /home/user/android-sdk
+RUN echo y | sudo /home/user/android-sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-21" "build-tools;28.0.3"
+
+RUN sudo chown -R user:user /home/user/android-sdk
+
 ENTRYPOINT ["buildozer"]
 

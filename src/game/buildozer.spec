@@ -88,13 +88,13 @@ fullscreen = 0
 #android.permissions = INTERNET
 
 # (int) Android API to use
-#android.api = 19
+android.api = 21
 
 # (int) Minimum API required
 #android.minapi = 9
 
 # (int) Android SDK version to use
-android.sdk = 24
+android.sdk = 25
 
 # (str) Android NDK version to use
 android.ndk = 10
@@ -106,7 +106,7 @@ android.ndk = 10
 android.ndk_path = /crystax-ndk-10.3.2
 
 # (str) Android SDK directory (if empty, it will be automatically downloaded.)
-#android.sdk_path =
+android.sdk_path = /home/user/android-sdk
 
 # (str) ANT directory (if empty, it will be automatically downloaded.)
 #android.ant_path =
@@ -114,7 +114,7 @@ android.ndk_path = /crystax-ndk-10.3.2
 # (bool) If True, then skip trying to update the Android sdk
 # This can be useful to avoid excess Internet downloads or save time
 # when an update is due and you just want to test/build your package
-# android.skip_update = False
+android.skip_update = True
 
 # (str) Android entry point, default is ok for Kivy-based app
 #android.entrypoint = org.renpy.android.PythonActivity
