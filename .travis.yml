@@ -6,10 +6,6 @@ language: python
     directories:
      - src/game/.buildozer
 
-branches:
-  only:
-  - develop
-
 services:
   - docker
 
