@@ -36,6 +36,7 @@ RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN wget -q https://www.crystax.net/download/crystax-ndk-$NDK_VERSION-linux-x86_64.tar.xz \
     && tar xf crystax-ndk-$NDK_VERSION-linux-x86_64.tar.xz 
 
+
 USER ${USER}
 WORKDIR ${WORK_DIR}
 
@@ -49,7 +50,15 @@ RUN sudo mkdir /home/user/android-sdk
 RUN sudo unzip tools_r25.2.3-linux.zip -d /home/user/android-sdk
 RUN echo y | sudo /home/user/android-sdk/tools/bin/sdkmanager "platform-tools" "platforms;android-21" "build-tools;28.0.3"
 
-RUN sudo chown -R user:user /home/user/android-sdk
+RUN sudo wget -q http://apache-mirror.rbc.ru/pub/apache/ant/binaries/apache-ant-1.10.5-bin.zip
+RUN sudo unzip apache-ant-1.10.5-bin.zip -d /home/user/
+RUN sudo chown -R user:user /home/user/apache-ant-1.10.5 /home/user/android-sdk
+
+
+RUN sudo wget -q https://services.gradle.org/distributions/gradle-4.10.2-bin.zip
+RUN sudo unzip gradle-4.10.2-bin.zip -d /home/user/.gradle
+
+RUN sudo chown -R user:user /home/user/apache-ant-1.10.5 /home/user/android-sdk /home/user/.gradle
 
 ENTRYPOINT ["buildozer"]
 
