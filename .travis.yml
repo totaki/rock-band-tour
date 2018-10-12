@@ -16,4 +16,4 @@ before_script:
   - cd src/game
 
 script:
-  - docker run --rm $PWD:/home/user/hostcwd totaki/rock-band-tour android release
+  - docker run --rm -v $PWD:/home/user/hostcwd totaki/rock-band-tour android release
