@@ -2,9 +2,9 @@ sudo: required
 
 language: python
 
- cache:
-    directories:
-     - src/game/.buildozer
+cache:
+  directories:
+    - src/game/.buildozer
 
 services:
   - docker
