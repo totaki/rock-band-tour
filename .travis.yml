@@ -16,7 +16,6 @@ before_script:
   - cd src/game
   - chmod 777 .buildozer
   - mkdir bin && chmod 777 bin
-  - export BUILDOZER_ALLOW_ORG_TEST_DOMAIN=1
 
 script:
-  - docker run --rm -v $PWD:/home/user/hostcwd totaki/rock-band-tour android release
+  - docker run --rm -v $PWD:/home/user/hostcwd totaki/rock-band-tour android debug
