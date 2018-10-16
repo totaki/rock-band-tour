@@ -18,4 +18,4 @@ before_script:
   - mkdir bin && chmod 777 bin
 
 script:
-  - docker run --rm $PWD:/home/user/hostcwd totaki/rock-band-tour android release
+  - docker run --rm -v $PWD:/home/user/hostcwd totaki/rock-band-tour android release
