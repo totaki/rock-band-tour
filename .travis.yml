@@ -14,6 +14,8 @@ before_install:
 
 before_script:
   - cd src/game
+  - mkdir .buildozer && chmod 777 .buildozer
+  - mkdir bin && chmod 777 bin
 
 script:
   - docker run --rm $PWD:/home/user/hostcwd totaki/rock-band-tour android release
