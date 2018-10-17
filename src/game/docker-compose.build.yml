@@ -1,0 +1,9 @@
+version: "3.5"
+
+services:
+  game:
+    image: 'rbt:buidozer'
+  volumes:
+    - "./:${HOME_DIR}/hostcwd"
+  command: ["android", "debug"]
+      
