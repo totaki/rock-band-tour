@@ -9,10 +9,6 @@ cache:
 services:
   - docker
 
-branches:
-  only:
-    - develop
-
 script:
   - echo "nothing to do"
 
@@ -33,4 +29,3 @@ deploy:
     on:
       repo: totaki/rock-band-tour
       tags: true
-      all_branches: true
