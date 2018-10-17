@@ -1,1 +1,1 @@
-# rock-band-tour
+# rock-band-tour [![Build Status](https://api.travis-ci.org/totaki/rock-band-tour.svg?branch=develop)](https://travis-ci.org/totaki/rock-band-tour/builds)
