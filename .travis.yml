@@ -33,3 +33,4 @@ deploy:
     on:
       repo: totaki/rock-band-tour
       tags: true
+      all_branches: true
