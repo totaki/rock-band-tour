@@ -9,6 +9,10 @@ cache:
 services:
   - docker
 
+branches:
+  only:
+    - develop
+
 script:
   - echo "nothing to do"
 
@@ -17,14 +21,14 @@ before_deploy:
   - cd src/game
   - chmod 777 .buildozer
   - mkdir bin && chmod 777 bin
-  - docker run --rm -v $PWD:/home/user/hostcwd totaki/rock-band-tour android release
+  - docker run --rm -v $PWD:/home/user/hostcwd totaki/rock-band-tour android debug
 
 deploy:
   - provider: releases
     api_key:
       secure: PdXO8vicNkzDzdMPmGUaK/PABaFbpzu7DBCzBU8ZQzYVngjZzlhbhODyoc+QTutp+Vqc1k3FAtWyWQ03CeNFORbF/6f5MoMGj5e0JiLCpYxmp8eWq3Eqym+8+1DKycemFlY9XQFy83KXTBiM4+VkON0bkr9GzCiM1nK6L/MClC8mTzYdpBQt4iXvV84T0tZ5McaGMMqa6STImywijp1VUELYk/fGGQc2fndXykAbJkvVMj3brZDZuKH2rj0iw5jROlFITG8ygf5EL3lijA++sALaHHdIoff0lC1cBQXuFlTk3Kpu2dhCq2mS8ju+UAVbxILGBF/Fazh2BPrjA6nTX4mLHFF1dEELbyUNzVziDdfXhtpHZMXn6zOrjEn7Mi+1G8JZPqbgXtuWqM3kPNFKPNOpp6eaBzm1JCeSw1N+D2sfdroQdZgZXZNFckje6iqu0b2c4MxAuySrd6UcbBFCWYv4d/6PZRGnSDgmO2PFx+KhxZ1h+Cb3Mhm81y1JUwmxPjFB4zJ4NHNL42xAKZaX7EDjUDdYKOb6OlffNS3B0JwVCNUppfRzCMh4vUn+/fCKBl682nkz0PImlYTYJrErCRjZ4AU7vJMoN+1G8DdzUOko16l0exxfwItQnTNkjph2qjii5BRq3AReBa4j77G4hJ8S4Y4fCHGcpY357TuFHYU=
     file_glob: true
-    file: src/game/bin/*
+    file: bin/*
     skip_cleanup: true
     on:
       repo: totaki/rock-band-tour
