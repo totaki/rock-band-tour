@@ -34,4 +34,5 @@ deploy:
       tags: true
 
 after_deploy:
+  - cd ../..
   - python send_bot.py --version=$(git tag | tail -1)
