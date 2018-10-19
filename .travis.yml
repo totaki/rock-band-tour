@@ -1,6 +1,8 @@
 sudo: required
 
 language: python
+python:
+  - "3.6"
 
 cache:
   directories:
@@ -18,6 +20,7 @@ before_deploy:
   - chmod 777 .buildozer
   - mkdir bin && chmod 777 bin
   - docker run --rm -v $PWD:/home/user/hostcwd totaki/rock-band-tour android debug
+  - pip install python-telegram-bot --upgrade
 
 deploy:
   - provider: releases
@@ -29,3 +32,6 @@ deploy:
     on:
       repo: totaki/rock-band-tour
       tags: true
+
+after_deploy:
+  - python send_bot.py --version=$(git tag | tail -1)
