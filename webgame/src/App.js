@@ -8,6 +8,7 @@ import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
 import EventInfo from "./containers/EventInfo";
 import {eventAction, showGroupInfo} from "./controller";
+import Minigame from "./components/minigame/Minigame";
 
 const COMMON_MODAL_STYLE = {
     backgroundColor: "#161616",
