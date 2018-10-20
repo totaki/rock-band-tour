@@ -18,7 +18,7 @@ const COMMON_MODAL_STYLE = {
 class App extends Component {
 
   render() {
-    const { group, showEventId, closeEvent } = this.props;
+    const { group, showEventId, closeEvent, showGroupInfo } = this.props;
     return (
       <div className="App">
           {group ? <MainScreen/> : <ChoiceGroup/>}
@@ -47,6 +47,7 @@ function mapStateToProps(state) {
     return {
         group: state.group,
         showEventId: state.showEventId,
+        showGroupInfo: state.showGroupInfo
     };
 }
 
