@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Howl} from 'howler';
+import { Howl } from 'howler';
 import ChoiceGroup from './containers/ChoiceGroup';
 import MainScreen from './containers/MainScreen';
 import { connect } from "react-redux";
@@ -19,7 +19,6 @@ class App extends Component {
     const sound = new Howl({
       src: ['assets/sounds/group1.mp3']
     });
-
     sound.fade(0.1, 0.5, 4000);
     sound.play();
   }

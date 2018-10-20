@@ -4,5 +4,10 @@
     left: 0;
     right: 0;
     bottom: 0;
-    z-indx: 0
+    z-index: 0
+}
+
+svg #club1:hover, svg #club2:hover, svg #club3:hover {
+    fill: rgb(120, 0, 0);
+    cursor: pointer;
 }

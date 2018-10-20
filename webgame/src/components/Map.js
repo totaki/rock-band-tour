@@ -13,7 +13,7 @@ const Map = ({ onClick }) => {
                 <path d="M231.139 179.976L248.505 191.106M248.505 191.106L283.985 140.361L282.935 121.636L318.944 98.3023L378.286 110.977L396.348 160.072L371.28 149.653L353.706 162.489L335.003 169.37L261.222 199.699L248.505 191.106Z" stroke="white"/>
                 <path d="M111.322 234.943L91.4502 177.886L147.581 154.665L130.115 127.186L135.202 119.122L130.268 114.023L161.969 97.7378L185.039 108.057L203.395 92.7492L235.068 86.962" stroke="#FCFCFC"/>
                 <path d="M129.468 243.714L169.525 302.451L213.102 272.393L285.365 271.836L274.832 221.131L260.654 200.885" stroke="white"/>
-                <circle cx="24.5" cy="24.5" r="11.5" fill="#D80000" transform="translate(326.55192,79.690929)" onClick={() => onClick(0)}/>
+                <circle id="club1" cx="24.5" cy="24.5" r="11.5" fill="#D80000" transform="translate(326.55192,79.690929)" onClick={() => onClick(0)}/>
                 <g filter="url(#filter0_d)" transform="translate(326.55192,79.690929)">
                     <circle cx="24.5" cy="24.5" r="14" stroke="#D80000"/>
                 </g>
@@ -30,7 +30,7 @@ const Map = ({ onClick }) => {
                     </filter>
                 </defs>
 
-                <circle cx="24.5" cy="24.5" r="11.5" fill="#D80000" transform="translate(206.639,122.976)" onClick={() => onClick(1)}/>
+                <circle id="club2" cx="24.5" cy="24.5" r="11.5" fill="#D80000" transform="translate(206.639,122.976)" onClick={() => onClick(1)}/>
                 <g filter="url(#filter0_d)" transform="translate(206.639,122.976)">
                     <circle cx="24.5" cy="24.5" r="14" stroke="#D80000"/>
                 </g>
@@ -46,7 +46,7 @@ const Map = ({ onClick }) => {
                     <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
                     </filter>
                 </defs>
-                <circle cx="24.5" cy="24.5" r="11.5" fill="#D80000" transform="translate(105.61963,175.80202)" onClick={() => onClick(2)}/>
+                <circle id="club3" cx="24.5" cy="24.5" r="11.5" fill="#D80000" transform="translate(105.61963,175.80202)" onClick={() => onClick(2)}/>
                 <g filter="url(#filter0_d)" transform="translate(105.61963,175.80202)">
                     <circle cx="24.5" cy="24.5" r="14" stroke="#D80000"/>
                 </g>
