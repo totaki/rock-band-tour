@@ -1,0 +1,19 @@
+.event_info_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+.row_container {
+  padding: 40px;
+  display:  flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.event_info_wrapper {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(/assets/images/wrapper_bg.svg);
+}
