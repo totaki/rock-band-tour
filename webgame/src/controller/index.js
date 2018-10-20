@@ -49,6 +49,12 @@ const eventAction = {
     })
 };
 
+const updatePromo = (promoId, eventId) => ({
+        type: AT.updateEventPromo,
+        eventId,
+        promoId
+});
+
 const store = createStore(commonReducer);
 
 export {
@@ -57,5 +63,6 @@ export {
     showGroupInfo,
     setSpeed,
     eventAction,
+    updatePromo,
     store
 }

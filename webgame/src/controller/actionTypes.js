@@ -7,4 +7,5 @@ export default {
     setEventId: 'setEventId',
     setStartEventId: 'startEventId',
     setStopEventId: 'stopEventId',
+    updateEventPromo: 'updateEventPromo',
 }
