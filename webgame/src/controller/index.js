@@ -56,6 +56,14 @@ const updatePromo = (promoId, eventId) => ({
         promoId
 });
 
+
+const eventResult = (eventScores) => {
+    return {
+        type: AT.eventResult,
+        eventScores: eventScores
+    }
+};
+
 const store = createStore(commonReducer, applyMiddleware(thunk));
 
 const tick = () => dispatch => {
@@ -73,5 +81,6 @@ export {
     eventAction,
     updatePromo,
     store,
-    tick
+    tick,
+    eventResult
 }

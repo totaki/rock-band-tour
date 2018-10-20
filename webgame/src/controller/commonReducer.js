@@ -8,6 +8,8 @@ const initialState = {
     timeout: null,
     dt: moment('201801011200', 'YYYYMMDDhhmm'),
     speed: 0,
+    money: 0,
+    famous: 0,
     showGroupInfo: null,
     showEventId: null,
     createEventId: null,
@@ -78,6 +80,12 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 showGroupInfo: action.showGroupInfo
+            };
+        case AT.eventResult:
+             console.log(action.eventScores);
+            return {
+                ...state,
+                famous: state.famous + action.eventScores
             };
         default:
             return state
