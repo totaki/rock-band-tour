@@ -1,14 +1,14 @@
 import React from 'react';
 import './Avatar.scss';
 
-const Avatar = ({ avatar, size }) => {
+const Avatar = ({ avatar, size, onClick=()=> {} }) => {
     const style = {
         backgroundImage: `url(${avatar})`,
         height: size,
         width: '100%'
     };
     return (
-        <div className="avatar" style={style}/>
+        <div className="avatar" style={style} onClick={() => onClick()}/>
     )
 };
 
