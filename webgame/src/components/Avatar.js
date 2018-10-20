@@ -1,15 +1,15 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './Avatar.scss';
 
-const Avatar = ({ avatar, size, onClick=()=> {} }) => {
+const Avatar = ({ className, avatar, size, onClick=()=> {} }) => {
     const style = {
-        backgroundImage: `url(${avatar})`,
         height: size,
         width: '100%',
         cursor: "pointer"
     };
+    const classes = `avatar ${className}`;
     return (
-        <div className="avatar" style={style} onClick={() => onClick()}/>
+        <div className={classes} style={style} onClick={() => onClick()}/>
     )
 };
 
