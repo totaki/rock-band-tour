@@ -3,8 +3,6 @@
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 16px;
-  position: relative;
-  z-index: 10;
 }
 
 .rating {
@@ -20,6 +18,8 @@
 
 .money {
     font-size: 1.6em;
+    position: relative;
+    z-index: 10;
 }
 
 .main_header_left {
@@ -27,4 +27,6 @@
    flex-wrap: wrap;
    justify-content: space-between;
    min-width: 65%;
+   position: relative;
+   z-index: 10;
 }

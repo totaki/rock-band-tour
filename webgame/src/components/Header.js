@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Timer from './Timer';
 import './Header.scss';
 import Avatar from "./Avatar";
+import {showGroupInfo} from "../controller";
+import connect from "react-redux/es/connect/connect";
 
 const rating = 3;
 
@@ -18,7 +20,7 @@ const stars = (rating) => {
 
 class Header extends Component {
     render() {
-        const { avatar } = this.props;
+        const { avatar, _showGroupInfo } = this.props;
         return (
             <div className="main_header">
                 <div className="main_header_left">
@@ -26,7 +28,7 @@ class Header extends Component {
                         <div className="rating">
                             {stars(rating)}
                         </div>
-                        <Avatar avatar={avatar} size={'12em'}/>
+                        <Avatar onClick={() => _showGroupInfo()} avatar={avatar} size={'12em'}/>
                     </div>
                     <Timer/>
                 </div>
@@ -38,4 +40,10 @@ class Header extends Component {
     }
 }
 
-export default Header;
+function mapStateToDispatch(dispatch) {
+    return {
+        _showGroupInfo: () => dispatch(showGroupInfo(true)),
+    };
+}
+
+export default connect(null, mapStateToDispatch)(Header);

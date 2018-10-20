@@ -3,4 +3,8 @@ export default {
     startGame: 'startGame',
     setSpeed: 'setSpeed',
     showGroupInfo: 'showGroupInfo',
+    showEventId: 'showEventId',
+    setEventId: 'setEventId',
+    setStartEventId: 'startEventId',
+    setStopEventId: 'stopEventId',
 }

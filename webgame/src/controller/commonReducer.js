@@ -6,11 +6,21 @@ const initialState = {
     group: null,
     dt: new Date(2018, 1, 1, 12, 0, 0),
     speed: 0,
-    showGroupInfo: false
+    showGroupInfo: null,
+    showEventId: null,
+    createEventId: null,
+    startEventId: null,
+    stopEventId: null,
 };
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
+        case AT.showEventId:
+            console.log(action)
+            return {
+                ...state,
+                showEventId: action.index
+            };
         case AT.setGroup:
             return {
                 ...state,
