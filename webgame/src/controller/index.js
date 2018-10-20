@@ -29,6 +29,26 @@ const showGroupInfo = (value) => {
     }
 };
 
+
+const eventAction = {
+    show: (i) => ({
+        type: AT.showEventId,
+        index: i
+    }),
+    create: (i) => ({
+        type: AT.setEventId,
+        index: i
+    }),
+    start: (i) => ({
+        type: AT.setStartEventId,
+        index: i
+    }),
+    stop: (i) => ({
+        type: AT.setStopEventId,
+        index: i
+    })
+};
+
 const store = createStore(commonReducer);
 
 export {
@@ -36,5 +56,6 @@ export {
     startGame,
     showGroupInfo,
     setSpeed,
+    eventAction,
     store
 }
