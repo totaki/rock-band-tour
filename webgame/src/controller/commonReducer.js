@@ -1,10 +1,12 @@
 import defs from '../defaults';
 import AT from './actionTypes';
+import moment from 'moment';
 
 const initialState = {
     groupIndex: null,
     group: null,
-    dt: new Date(2018, 1, 1, 12, 0, 0),
+    timeout: null,
+    dt: moment('201801011200', 'YYYYMMDDhhmm'),
     speed: 0,
     showGroupInfo: null,
     showEventId: null,
@@ -14,8 +16,18 @@ const initialState = {
     eventPromo: {}
 };
 
+const SPEED_MODIFIER = 30;
+
 export default (state = initialState, action = {}) => {
+    let { timeout } = state;
     switch (action.type) {
+        case AT.tick:
+            const dt = state.dt.clone();
+            dt.add(state.speed * SPEED_MODIFIER, 'minutes');
+            return {
+                ...state,
+                dt
+            };
         case AT.updateEventPromo:
             const eventPromo = {...state.eventPromo};
             const { promoId, eventId } = action;
@@ -43,9 +55,19 @@ export default (state = initialState, action = {}) => {
                 groupIndex: action.index
             };
         case AT.setSpeed:
+            if (!action.speed) {
+                clearInterval(timeout);
+                timeout = null
+            }
             return {
                 ...state,
+                timeout: timeout,
                 speed: action.speed
+            };
+        case AT.setTimeout:
+            return {
+                ...state,
+                timeout: action.timeout
             };
         case AT.startGame:
             return {

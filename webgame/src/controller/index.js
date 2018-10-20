@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import commonReducer from './commonReducer';
 import AT from './actionTypes';
 
@@ -55,7 +56,14 @@ const updatePromo = (promoId, eventId) => ({
         promoId
 });
 
-const store = createStore(commonReducer);
+const store = createStore(commonReducer, applyMiddleware(thunk));
+
+const tick = () => dispatch => {
+    const timeout = setInterval(() => {
+            dispatch({type: AT.tick})
+        }, 1000);
+    dispatch({type:AT.setTimeout, timeout})
+};
 
 export {
     setGroup,
@@ -64,5 +72,6 @@ export {
     setSpeed,
     eventAction,
     updatePromo,
-    store
+    store,
+    tick
 }
