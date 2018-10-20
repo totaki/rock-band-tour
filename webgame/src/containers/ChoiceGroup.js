@@ -33,7 +33,7 @@ class ChoiceGroup extends Component {
 
 function mapStateToProps(state) {
     return {
-        groupIndex: state[0].groupIndex
+        groupIndex: state.groupIndex
     };
 }
 

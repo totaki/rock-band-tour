@@ -1,0 +1,21 @@
+.main_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  font-size: 2.4em;
+}
+
+.rating > span.fill:before {
+   content: "\2605";
+   position: absolute;
+   color: rgba(216, 0, 0, 1)
+}
+
+.money {
+    font-size: 1.6em;
+}
