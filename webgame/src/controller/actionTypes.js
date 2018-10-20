@@ -1,5 +1,6 @@
 export default {
     setGroup: 'setGroup',
     startGame: 'startGame',
-    showGroupInfo: 'showGroupInfo'
+    setSpeed: 'setSpeed',
+    showGroupInfo: 'showGroupInfo',
 }

@@ -9,6 +9,13 @@ const setGroup = (index) => {
     }
 };
 
+const setSpeed = (speed) => {
+    return {
+        type: AT.setSpeed,
+        speed: speed
+    }
+};
+
 const startGame = () => {
     return {
         type: AT.startGame,
@@ -28,5 +35,6 @@ export {
     setGroup,
     startGame,
     showGroupInfo,
+    setSpeed,
     store
 }

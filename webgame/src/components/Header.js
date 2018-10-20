@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Timer from './Timer';
 import './Header.scss';
+import Avatar from "./Avatar";
 
 const rating = 3;
 
@@ -17,12 +18,18 @@ const stars = (rating) => {
 
 class Header extends Component {
     render() {
+        const { avatar } = this.props;
         return (
             <div className="main_header">
-                <div className="rating">
-                    {stars(rating)}
+                <div className="main_header_left">
+                    <div>
+                        <div className="rating">
+                            {stars(rating)}
+                        </div>
+                        <Avatar avatar={avatar} size={'12em'}/>
+                    </div>
+                    <Timer/>
                 </div>
-                <Timer/>
                 <div className="money">
                     &#8381; {10000}
                 </div>
