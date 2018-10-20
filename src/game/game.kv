@@ -1,8 +1,20 @@
 #:kivy 1.0
 
-FloatLayout:
-    Image:
-        source: 'assets/images/logo-180dpi.png'
 
+<GroupLayout>:
+    canvas.before:
+        Color:
+            rgba: .5, .5, .5, 1
+        Line:
+            width: 1
+            rectangle: self.x, self.y, self.width, self.height
+
+<ChoiceGroupScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'assets/images/background.jpg'
+    orientation: 'horizontal'
 
 
