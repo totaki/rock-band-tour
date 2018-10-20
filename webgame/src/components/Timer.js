@@ -6,8 +6,8 @@ import SpeedControl from "./SpeedControl";
 class Timer extends Component {
     render() {
         const { dt } = this.props;
-        const dateString = "01-01-2018";
-        const timeString = "12:00";
+        const dateString = dt.format('DD.MM.YYYY');
+        const timeString = dt.format('hh:mm');
         return (
             <div>
                 <div className="timer">

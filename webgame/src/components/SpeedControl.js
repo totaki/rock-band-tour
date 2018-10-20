@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import './SpeedControl.scss';
-import { setSpeed } from "../controller";
+import {setSpeed, tick} from "../controller";
 
 
 const CircleButton = ({ content, active, onClick }) => {
@@ -14,28 +14,42 @@ const CircleButton = ({ content, active, onClick }) => {
 };
 
 class SpeedControl extends Component {
+    setSpeed(i) {
+        const { setSpeed, timeout, tick } = this.props;
+        if (!timeout) {
+            tick()
+        }
+        setSpeed(i)
+    }
+
     render() {
-        const { speed, setSpeed } = this.props;
+        const { speed } = this.props;
         return (
             <div className="speed_control">
-                <CircleButton content="P" active={speed === 0} onClick={() => setSpeed(0)}/>
-                <CircleButton content="x1" active={speed === 1} onClick={() => setSpeed(1)}/>
-                <CircleButton content="x2" active={speed === 2} onClick={() => setSpeed(2)}/>
-                <CircleButton content="x3" active={speed === 3} onClick={() => setSpeed(3)}/>
+                <CircleButton content="P" active={speed === 0} onClick={() => this.setSpeed(0)}/>
+                <CircleButton content="x1" active={speed === 1} onClick={() => this.setSpeed(1)}/>
+                <CircleButton content="x2" active={speed === 2} onClick={() => this.setSpeed(2)}/>
+                <CircleButton content="x3" active={speed === 3} onClick={() => this.setSpeed(3)}/>
             </div>
         )
+    }
+
+    componentWillUnmount() {
+        this.setSpeed(0)
     }
 }
 
 function mapStateToProps(state) {
     return {
-        speed: state.speed
+        speed: state.speed,
+        timeout: state.timeout
     };
 }
 
 function mapStateToDispatch(dispatch) {
     return {
         setSpeed: (i) => dispatch(setSpeed(i)),
+        tick: () => dispatch(tick())
     };
 }
 

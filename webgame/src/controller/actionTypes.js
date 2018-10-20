@@ -8,4 +8,6 @@ export default {
     setStartEventId: 'startEventId',
     setStopEventId: 'stopEventId',
     updateEventPromo: 'updateEventPromo',
+    setTimeout: 'setTimeout',
+    tick: 'tick'
 }
