@@ -9,17 +9,27 @@ const GROUPS = defaults.groups;
 class ChoiceGroup extends Component {
     constructor(props) {
         super(props);
-        this.state = {groupIndex: null}
+        this.state = {groupIndex: null};
+        this.setGroupIndex = this.setGroupIndex.bind(this)
+    }
+
+    setGroupIndex(i) {
+        this.setState({groupIndex: i})
     }
 
     render() {
+        const { groupIndex } = this.state;
         return (
             <div className="choice_group_container">
-                <h1>Выберите группу</h1>
                 <div>
+                    <h1>Выберите группу</h1>
                     <div className="choice_group_items">
-                        <ChoiceGroupItem group={GROUPS[0]}/>
-                        <ChoiceGroupItem group={GROUPS[1]}/>
+                        {
+                            GROUPS.map((i) => <ChoiceGroupItem group={i}
+                                                               current={i.id === groupIndex}
+                                                               onClick={() => this.setGroupIndex(i.id)}
+                                                               key={`group-choice-${i.id}`}/>)
+                        }
                     </div>
                 </div>
                 <MainButton title="START"/>

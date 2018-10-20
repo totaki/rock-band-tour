@@ -3,9 +3,12 @@ import './ChoiceGroupItem.scss';
 import Avatar from '../Avatar';
 
 
-const ChoiceGroupItem = ({ group, onClick }) => {
+const ChoiceGroupItem = ({ group, onClick, current }) => {
+    const style = !current ? {} : {
+        'borderColor': 'rgba(216, 0, 0, 1)'
+    };
     return (
-        <div className="choice_group_item" onClick={onClick}>
+        <div className="choice_group_item" onClick={onClick} style={style}>
             <Avatar avatar={group.avatar} size={'8em'}/>
         </div>
     )
