@@ -15,7 +15,7 @@ const startGame = () => {
     }
 };
 
-const store = createStore(combineReducers([commonReducer]));
+const store = createStore(commonReducer);
 
 export {
     setGroup,

@@ -3,7 +3,8 @@ import AT from './actionTypes';
 
 const initialState = {
     groupIndex: null,
-    group: null
+    group: null,
+    dt: new Date(2018, 1, 1, 12, 0, 0)
 };
 
 export default (state = initialState, action = {}) => {
