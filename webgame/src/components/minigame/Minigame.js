@@ -20,7 +20,7 @@ class Minigame extends Component {
 
         const app = new PIXI.Application(640, 360, { transparent: false });
 
-        document.body.appendChild(app.view);
+        document.getElementById('game').appendChild(app.view);
 
         const scoreText = new PIXI.Text('Score: 0');
         scoreText.style = new PIXI.TextStyle({
