@@ -1,0 +1,10 @@
+body {
+    background-color: lightblue;
+}
+
+.game {
+    background-color: #333333;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(background.jpg);
+}
