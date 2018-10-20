@@ -9,6 +9,13 @@ const setGroup = (index) => {
     }
 };
 
+const setSpeed = (speed) => {
+    return {
+        type: AT.setSpeed,
+        speed: speed
+    }
+};
+
 const startGame = () => {
     return {
         type: AT.startGame,
@@ -20,5 +27,6 @@ const store = createStore(commonReducer);
 export {
     setGroup,
     startGame,
+    setSpeed,
     store
 }

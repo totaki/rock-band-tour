@@ -1,0 +1,25 @@
+.speed_control {
+    padding: 16px 0 0 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.circle_button_active, .circle_button {
+    height: 48px;
+    width: 48px;
+    font-size: 1.2em;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circle_button_active:hover, .circle_button:hover {
+    cursor: pointer;
+}
+
+.circle_button_active {
+    border-color: rgba(255, 255, 255, .5);
+    color: rgba(255, 255, 255, .5);
+}

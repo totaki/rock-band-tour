@@ -1,6 +1,5 @@
 .main_header {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   padding: 16px;
 }
@@ -18,4 +17,10 @@
 
 .money {
     font-size: 1.6em;
+}
+
+.main_header_left {
+   display: flex;
+   justify-content: space-between;
+   min-width: 65%;
 }
