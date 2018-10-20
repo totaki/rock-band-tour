@@ -9,7 +9,10 @@ export default {
                     id: 1,
                     name: "Ivan Ivanov",
                     bio: "Crazy guy",
-                    avatar: ""
+                    avatar: "/assets/images/members/member_1.svg",
+                    health: 70,
+                    moral: 90,
+                    salary: 10000
                 }
             ]
         },
