@@ -71,10 +71,10 @@ const Map = ({ showEvent }) => {
     )
 };
 
-function mapStateToDispatch(dispatch) {
+function mapDispatchToProps(dispatch) {
     return {
         showEvent: (i) => dispatch(eventAction.show(i)),
     };
 }
 
-export default connect(null, mapStateToDispatch)(Map);
+export default connect(null, mapDispatchToProps)(Map);

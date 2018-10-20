@@ -38,7 +38,12 @@ class App extends Component {
             Информация о группе
             <EventInfo/>
         </Rodal>
-          <Rodal showCloseButton={false} visible={true} onClose={()=> {}} customStyles={COMMON_MODAL_STYLE}><Minigame/></Rodal>
+          <Rodal showCloseButton={false}
+                 visible={true}
+                 onClose={()=> {}}
+                 customStyles={COMMON_MODAL_STYLE}>
+              <Minigame/>
+          </Rodal>
       </div>
     );
   }
