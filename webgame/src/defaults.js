@@ -18,7 +18,7 @@ export default {
         },
         {   id: 2,
             name: "Мохнатый шмель",
-            avatar: "/assets/images/group_1.svg",
+            avatar: "/assets/images/group_2.svg",
 
         },
     ],

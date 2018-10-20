@@ -1,0 +1,21 @@
+@font-face {
+  font-family:"designosaur";
+  src: url("/assets/fonts/designosaur-regular.otf") format("truetype");
+}
+
+.menu {
+  display: flex;
+  width: 180px;
+  flex-direction: column;
+  font-family: designosaur;
+  line-height: normal;
+  font-size: 20px;
+  padding: 10px;
+  color: #FFFFFF;
+}
+
+.menu_item {
+  margin-top: 10px;
+  padding: 10px;
+  cursor: pointer;
+}

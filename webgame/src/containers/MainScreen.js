@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from "../components/Header";
 import Map from '../components/Map';
+import MainMenu from '../components/Menu';
 import { connect } from "react-redux";
 
 
@@ -11,6 +12,7 @@ class MainScreen extends Component {
             <div>
                 <Map onClick={console.log}/>
                 <Header avatar={group.avatar}/>
+                <MainMenu/>
             </div>
         )
     }
