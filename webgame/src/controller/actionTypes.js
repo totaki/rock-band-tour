@@ -1,4 +1,5 @@
 export default {
     setGroup: 'setGroup',
-    startGame: 'startGame'
+    startGame: 'startGame',
+    showGroupInfo: 'showGroupInfo'
 }

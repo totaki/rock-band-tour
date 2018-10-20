@@ -15,10 +15,18 @@ const startGame = () => {
     }
 };
 
+const showGroupInfo = (value) => {
+    return {
+        type: AT.showGroupInfo,
+        showGroupInfo: value
+    }
+};
+
 const store = createStore(combineReducers([commonReducer]));
 
 export {
     setGroup,
     startGame,
+    showGroupInfo,
     store
 }

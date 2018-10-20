@@ -3,7 +3,8 @@ import AT from './actionTypes';
 
 const initialState = {
     groupIndex: null,
-    group: null
+    group: null,
+    showGroupInfo: false
 };
 
 export default (state = initialState, action = {}) => {
@@ -17,6 +18,11 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 group: defs.groups[state.groupIndex - 1]
+            };
+        case AT.showGroupInfo:
+            return {
+                ...state,
+                showGroupInfo: action.showGroupInfo
             };
         default:
             return state
