@@ -9,4 +9,6 @@ export default {
     setStopEventId: 'stopEventId',
     updateEventPromo: 'updateEventPromo',
     eventResult: 'eventResult',
+    setTimeout: 'setTimeout',
+    tick: 'tick'
 }
