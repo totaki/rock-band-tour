@@ -5,7 +5,7 @@ const Avatar = ({ avatar, size }) => {
     const style = {
         backgroundImage: `url(${avatar})`,
         height: size,
-        width: size
+        width: '100%'
     };
     return (
         <div className="avatar" style={style}/>

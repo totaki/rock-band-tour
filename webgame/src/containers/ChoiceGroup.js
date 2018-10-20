@@ -1,24 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import ChoiceGroupItem from '../components/group/ChoiceGroupItem';
 import MainButton from '../components/button/MainButton';
 import defaults from '../defaults'
+import { setGroup, startGame } from "../controller";
 import './ChoiceGroup.scss'
 
 const GROUPS = defaults.groups;
 
 class ChoiceGroup extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {groupIndex: null};
-        this.setGroupIndex = this.setGroupIndex.bind(this)
-    }
-
-    setGroupIndex(i) {
-        this.setState({groupIndex: i})
-    }
 
     render() {
-        const { groupIndex } = this.state;
+        const { groupIndex, setGroupIndex, startGame } = this.props;
         return (
             <div className="choice_group_container">
                 <div>
@@ -27,15 +20,31 @@ class ChoiceGroup extends Component {
                         {
                             GROUPS.map((i) => <ChoiceGroupItem group={i}
                                                                current={i.id === groupIndex}
-                                                               onClick={() => this.setGroupIndex(i.id)}
+                                                               onClick={() => setGroupIndex(i.id)}
                                                                key={`group-choice-${i.id}`}/>)
                         }
                     </div>
                 </div>
-                <MainButton title="START"/>
+                <MainButton title="START" onClick={startGame}/>
             </div>
         );
     }
 }
 
-export default ChoiceGroup;
+function mapStateToProps(state) {
+    return {
+        groupIndex: state[0].groupIndex
+    };
+}
+
+function mapStateToDispatch(dispatch) {
+    return {
+        setGroupIndex: (i) => dispatch(setGroup(i)),
+        startGame: () => dispatch(startGame())
+    };
+}
+
+export default connect(
+    mapStateToProps,
+    mapStateToDispatch
+)(ChoiceGroup);
