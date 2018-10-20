@@ -11,12 +11,28 @@ const initialState = {
     createEventId: null,
     startEventId: null,
     stopEventId: null,
+    eventPromo: {}
 };
 
 export default (state = initialState, action = {}) => {
     switch (action.type) {
+        case AT.updateEventPromo:
+            const eventPromo = {...state.eventPromo};
+            const { promoId, eventId } = action;
+            if (!eventPromo[eventId]) {
+                eventPromo[eventId] = [promoId]
+            } else {
+                if (eventPromo[eventId].indexOf(promoId) > -1) {
+                    eventPromo[eventId] = eventPromo[eventId].filter(i => i !== promoId)
+                } else {
+                    eventPromo[eventId].push(promoId)
+                }
+            }
+            return {
+                ...state,
+                eventPromo: eventPromo
+            };
         case AT.showEventId:
-            console.log(action)
             return {
                 ...state,
                 showEventId: action.index

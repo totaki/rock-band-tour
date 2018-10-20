@@ -27,7 +27,6 @@ class App extends Component {
                  animation="slideRight"
                  showCloseButton={false}
                  customStyles={COMMON_MODAL_STYLE}>
-              Hello world
               <EventInfo/>
           </Rodal>
       </div>
