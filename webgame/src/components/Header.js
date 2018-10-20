@@ -20,7 +20,7 @@ const stars = (rating) => {
 
 class Header extends Component {
     render() {
-        const { avatar, _showGroupInfo } = this.props;
+        const { group, _showGroupInfo } = this.props;
         return (
             <div className="main_header">
                 <div className="main_header_left">
@@ -28,7 +28,7 @@ class Header extends Component {
                         <div className="rating">
                             {stars(rating)}
                         </div>
-                        <Avatar onClick={() => _showGroupInfo()} avatar={avatar} size={'12em'}/>
+                        <Avatar className={`avatar_${group.id}`} onClick={() => _showGroupInfo()} size={'12em'}/>
                     </div>
                     <Timer/>
                 </div>
