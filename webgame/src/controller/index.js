@@ -22,7 +22,7 @@ const showGroupInfo = (value) => {
     }
 };
 
-const store = createStore(combineReducers([commonReducer]));
+const store = createStore(commonReducer);
 
 export {
     setGroup,

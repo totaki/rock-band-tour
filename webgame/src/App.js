@@ -17,7 +17,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
     return {
-        group: state[0].group
+        group: state.group
     };
 }
 
