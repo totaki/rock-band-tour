@@ -7,6 +7,11 @@ import './ChoiceGroup.scss'
 const GROUPS = defaults.groups;
 
 class ChoiceGroup extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {groupIndex: null}
+    }
+
     render() {
         return (
             <div className="choice_group_container">
@@ -17,7 +22,7 @@ class ChoiceGroup extends Component {
                         <ChoiceGroupItem group={GROUPS[1]}/>
                     </div>
                 </div>
-                <MainButton/>
+                <MainButton title="START"/>
             </div>
         );
     }
