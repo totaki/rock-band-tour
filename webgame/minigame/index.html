@@ -36,7 +36,7 @@ background.position.y = 0;
 
 app.stage.addChild( background );
 app.stage.addChild(scoreText);
-
+const sound = PIXI.sound.Sound.from('sprite.mp3');
 
 const setScore = value => {
     scoreText.setText("Score: " + value)
@@ -48,6 +48,7 @@ PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 function onSpriteClick (e) {
     state.scores += 10;
     e.target.visible = false;
+    sound.play()
     sprite.destroy({texture: true})
 }
 
