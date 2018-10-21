@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import './Menu.scss';
+import {eventAction, showStore} from "../controller";
 
 
 const MenuButton = ({content, onClick}) => {
@@ -9,13 +10,13 @@ const MenuButton = ({content, onClick}) => {
 
 class MainMenu extends Component {
     render() {
-        const {} = this.props;
+        const {showGameStore} = this.props;
         return (
             <div className="menu">
                 <MenuButton content="Социальные сети" onClick={() => {}}/>
                 <MenuButton content="Статистика" onClick={() => {}}/>
                 <MenuButton content="Календарь" onClick={() => {}}/>
-                <MenuButton content="Магазин" onClick={() => {}}/>
+                <MenuButton content="Магазин" onClick={() => showGameStore()}/>
             </div>
         )
     }
@@ -28,6 +29,7 @@ function mapStateToProps(state) {
 
 function mapStateToDispatch(dispatch) {
     return {
+        showGameStore: () => dispatch(showStore(true)),
     };
 }
 

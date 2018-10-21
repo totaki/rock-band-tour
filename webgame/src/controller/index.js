@@ -31,6 +31,14 @@ const showGroupInfo = (value) => {
     }
 };
 
+const showStore = (value) => {
+    console.log(value);
+    return {
+        type: AT.showStore,
+        showStore: value
+    }
+};
+
 const showEventResult = (value) => {
     console.log(value);
     return {
@@ -106,6 +114,7 @@ export {
     setGroup,
     startGame,
     showGroupInfo,
+    showStore,
     setSpeed,
     eventAction,
     updatePromo,

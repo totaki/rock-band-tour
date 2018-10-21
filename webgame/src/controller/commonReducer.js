@@ -23,6 +23,7 @@ const initialState = {
     deltaFamous: 0,
     scores: 0,
     showGroupInfo: null,
+    showStore: null,
     showEventResult: null,
     showEventId: null,
     createEventId: null,
@@ -111,6 +112,11 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 timeout: action.timeout
+            };
+        case AT.showStore:
+            return {
+                ...state,
+                showStore: action.showStore
             };
         case AT.startGame:
             return {

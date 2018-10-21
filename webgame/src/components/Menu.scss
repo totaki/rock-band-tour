@@ -4,6 +4,7 @@
 }
 
 .menu {
+  position: relative;
   display: flex;
   width: 180px;
   flex-direction: column;
@@ -12,6 +13,7 @@
   font-size: 20px;
   padding: 10px;
   color: #FFFFFF;
+  z-index: 1000;
 }
 
 .menu_item {

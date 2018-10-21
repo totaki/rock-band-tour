@@ -7,7 +7,7 @@ import './App.css';
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
 import EventInfo from "./containers/EventInfo";
-import {eventAction, showEventResult, showGroupInfo} from "./controller";
+import {eventAction, showEventResult, showStore, showGroupInfo} from "./controller";
 import Minigame from "./components/minigame/Minigame";
 import GroupInfo from "./containers/group/GroupView";
 import EventResult from "./containers/EventResult";
@@ -23,7 +23,7 @@ class App extends Component {
   render() {
     const {group, showEventId, closeEvent, showGroupInfo,
         hideGroupInfo, startEventId, stopEventId, showEventResult,
-        hideEventResult} = this.props;
+        hideEventResult, showStore, hideStore} = this.props;
     return (
       <div className="App">
           {group ? <MainScreen/> : <ChoiceGroup/>}
@@ -59,6 +59,13 @@ class App extends Component {
                customStyles={COMMON_MODAL_STYLE}>
             <EventResult/>
         </Rodal>
+        <Rodal visible={!!showStore}
+               onClose={hideStore}
+               animation="slideRight"
+               showCloseButton={false}
+               customStyles={COMMON_MODAL_STYLE}>
+            <div>Магазин</div>
+        </Rodal>
       </div>
     );
   }
@@ -79,7 +86,8 @@ function mapStateToProps(state) {
         showGroupInfo: state.showGroupInfo,
         showEventResult: state.showEventResult,
         startEventId: state.startEventId,
-        stopEventId: state.stopEventId
+        stopEventId: state.stopEventId,
+        showStore: state.showStore
     };
 }
 
@@ -87,7 +95,8 @@ function mapStateToDispatch(dispatch) {
     return {
         closeEvent: () => dispatch(eventAction.show(null)),
         hideGroupInfo: () => dispatch(showGroupInfo(false)),
-        hideEventResult: () => dispatch(showEventResult(false))
+        hideEventResult: () => dispatch(showEventResult(false)),
+        hideStore: () => dispatch(showStore(false)),
     };
 }
 
