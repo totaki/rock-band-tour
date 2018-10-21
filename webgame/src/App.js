@@ -36,7 +36,6 @@ class App extends Component {
                animation="slideRight"
                showCloseButton={false}
                customStyles={COMMON_MODAL_STYLE}>
-            Информация о группе
             {showGroupInfo ? <GroupInfo group={group}/>: <div/>}
         </Rodal>
         <Rodal visible={!!startEventId}
