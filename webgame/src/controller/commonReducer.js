@@ -61,18 +61,21 @@ export default (state = initialState, action = {}) => {
         case AT.updateEventPromo:
             const eventPromo = {...state.eventPromo};
             const { promoId, eventId } = action;
+            let price = action.price;
             if (!eventPromo[eventId]) {
                 eventPromo[eventId] = [promoId]
             } else {
                 if (eventPromo[eventId].indexOf(promoId) > -1) {
                     eventPromo[eventId] = eventPromo[eventId].filter(i => i !== promoId)
+                    price = -price;
                 } else {
                     eventPromo[eventId].push(promoId)
                 }
             }
             return {
                 ...state,
-                eventPromo: eventPromo
+                eventPromo: eventPromo,
+                money: state.money - price
             };
         case AT.showEventId:
             return {

@@ -53,8 +53,9 @@ const eventAction = {
 
 const updatePromo = (promoId, eventId) => ({
         type: AT.updateEventPromo,
+        price: defaults.eventsPromo[promoId][1],
         eventId,
-        promoId
+        promoId,
 });
 
 
