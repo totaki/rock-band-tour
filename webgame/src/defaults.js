@@ -9,7 +9,7 @@ export default {
             members: [
                 {
                     id: 1,
-                    name: "Ivan Ivanov",
+                    name: "Агафий",
                     bio: "Crazy guy",
                     avatar: "/assets/images/members/member6.svg",
                     health: 70,
@@ -18,7 +18,7 @@ export default {
                 },
                 {
                     id: 2,
-                    name: "Ivan Ivanov",
+                    name: "Аллочка",
                     bio: "Crazy guy",
                     avatar: "/assets/images/members/member8.svg",
                     health: 70,
@@ -27,7 +27,7 @@ export default {
                 },
                 {
                     id: 3,
-                    name: "Ivan Ivanov",
+                    name: "Захар",
                     bio: "Crazy guy",
                     avatar: "/assets/images/members/member5.svg",
                     health: 70,
@@ -36,7 +36,7 @@ export default {
                 },
                 {
                     id: 4,
-                    name: "Ivan Ivanov",
+                    name: "Женя",
                     bio: "Crazy guy",
                     avatar: "/assets/images/members/member7.svg",
                     health: 70,
@@ -51,7 +51,7 @@ export default {
             members: [
                 {
                     id: 1,
-                    name: "Ivan Ivanov",
+                    name: "Деннис",
                     bio: "Crazy guy",
                     avatar: "/assets/images/members/member1.svg",
                     health: 70,
@@ -60,7 +60,7 @@ export default {
                 },
                 {
                     id: 2,
-                    name: "Ivan Ivanov",
+                    name: "Игорь",
                     bio: "Crazy guy",
                     avatar: "/assets/images/members/member2.svg",
                     health: 70,
@@ -69,7 +69,7 @@ export default {
                 },
                 {
                     id: 3,
-                    name: "Ivan Ivanov",
+                    name: "Зина",
                     bio: "Crazy guy",
                     avatar: "/assets/images/members/member3.svg",
                     health: 70,
@@ -78,7 +78,7 @@ export default {
                 },
                 {
                     id: 4,
-                    name: "Ivan Ivanov",
+                    name: "Аристарх",
                     bio: "Crazy guy",
                     avatar: "/assets/images/members/member4.svg",
                     health: 70,
