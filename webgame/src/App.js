@@ -11,6 +11,7 @@ import {eventAction, showEventResult, showStore, showGroupInfo} from "./controll
 import Minigame from "./components/minigame/Minigame";
 import GroupInfo from "./containers/group/GroupView";
 import EventResult from "./containers/EventResult";
+import GameStore from "./components/store/Store";
 
 const COMMON_MODAL_STYLE = {
     backgroundColor: "#161616",
@@ -64,7 +65,7 @@ class App extends Component {
                animation="slideRight"
                showCloseButton={false}
                customStyles={COMMON_MODAL_STYLE}>
-            <div>Магазин</div>
+            <GameStore/>
         </Rodal>
       </div>
     );
