@@ -33,6 +33,7 @@ export default (state = initialState, action = {}) => {
     let { timeout } = state;
     switch (action.type) {
         case AT.setStartEventId:
+            console.log(state.sheduleEventsIds);
             state.sheduleEventsIds.sort((i, j) => getTS(j) - getTS(i));
             const toStartEventId = state.sheduleEventsIds.pop();
             return {
@@ -42,6 +43,7 @@ export default (state = initialState, action = {}) => {
             };
         case AT.setEventId:
             const { index } = action;
+            console.log('setEventId',action);
             const sheduleEventsIds = [...state.sheduleEventsIds];
             sheduleEventsIds.push(index);
             return {

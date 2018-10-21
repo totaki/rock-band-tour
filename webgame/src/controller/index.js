@@ -70,7 +70,7 @@ const eventResult = (eventScores, eventId, eventPromo) => {
     return {
         type: AT.eventResult,
         eventScores: eventScores,
-        eventData: defaults.events[eventId],
+        eventData: defaults.events[eventId - 1],
         promoResult: promoResult
     }
 };
