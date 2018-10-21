@@ -23,3 +23,11 @@
     border-color: rgba(255, 255, 255, .5);
     color: rgba(255, 255, 255, .5);
 }
+
+@media (max-width: 720px) {
+  .circle_button_active, .circle_button {
+      width: 24px;
+      height: 24px;
+      font-size: 1em;
+  }
+}

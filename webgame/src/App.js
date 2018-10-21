@@ -14,8 +14,8 @@ import EventResult from "./containers/EventResult";
 
 const COMMON_MODAL_STYLE = {
     backgroundColor: "#161616",
-    width: "50%",
-    height: "50%",
+    width: window.innerWidth <= 720 ? "calc(100% - 31px)": "50%",
+    height: window.innerWidth <= 720 ? "calc(100% - 31px)": "50%",
 };
 
 class App extends Component {
@@ -37,7 +37,7 @@ class App extends Component {
         <Rodal visible={!!showGroupInfo}
                onClose={hideGroupInfo}
                animation="slideRight"
-               showCloseButton={false}
+               showCloseButton={true}
                customStyles={COMMON_MODAL_STYLE}>
             {showGroupInfo ? <GroupInfo group={group}/>: <div/>}
         </Rodal>

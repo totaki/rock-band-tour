@@ -12,7 +12,7 @@ const PROMO_MULTIPLIER = 0.01;
 const SCORES_MULTIPLIER = 0.1;
 
 const initialState = {
-    groupIndex: 1,
+    groupIndex: null,
     group: null,
     timeout: null,
     dt: moment('201801031200', 'YYYYMMDDhhmm'),

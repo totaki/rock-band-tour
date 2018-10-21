@@ -12,3 +12,10 @@
     justify-content: space-between;
     width: 100%;
 }
+
+@media (max-width: 720px) {
+
+    .choice_group_container h1 {
+        display: none;
+    }
+}
