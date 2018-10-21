@@ -125,7 +125,7 @@ class Minigame extends Component {
                 clearInterval(inteval);
             });
             app.stop();
-            this.props.eventResult(state.scores)
+            this.props.eventResult(state.scores, this.props.startEventId, this.props.eventPromo)
         };
 
         incrementLevel();
@@ -141,10 +141,16 @@ class Minigame extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
-        eventResult: (i) => dispatch(eventResult(i)),
+        eventResult: (a, b, c) => dispatch(eventResult(a, b, c)),
     };
-}
+};
 
-export default connect(null, mapDispatchToProps)(Minigame);
+const  mapStateToProps = (state) => {
+    return {
+        startEventId: state.startEventId,
+        eventPromo: state.eventPromo
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Minigame);

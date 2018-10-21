@@ -2,6 +2,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import commonReducer from './commonReducer';
 import AT from './actionTypes';
+import defaults from "../defaults";
 
 const setGroup = (index) => {
     return {
@@ -57,10 +58,17 @@ const updatePromo = (promoId, eventId) => ({
 });
 
 
-const eventResult = (eventScores) => {
+const eventResult = (eventScores, eventId, eventPromo) => {
+    console.log(eventId, eventPromo);
+    const promo = eventPromo[eventId];
+    const promoResult = promo.reduce(function (sum, current) {
+        return sum + defaults.eventsPromo[current][1]
+    }) / 10;
     return {
         type: AT.eventResult,
-        eventScores: eventScores
+        eventScores: eventScores,
+        eventData: defaults.events[eventId],
+        promoResult: promoResult
     }
 };
 
