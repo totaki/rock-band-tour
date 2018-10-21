@@ -1,10 +1,28 @@
-.event_info_container {
+.event_info {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    justify-content: space-between;
     height: calc(100% - 16px);
     padding: 8px;
     border-radius: 4px;
     border: 1px dashed white
+}
+
+.event_info_control {
+}
+
+.event_cancel_btn {
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.event_cancel_btn:hover {
+    color: rgba(255, 255, 255, .8);
+}
+
+.event_info_container {
+    display: flex;
+    justify-content: space-around;
 }
 
 .event_info_cols {

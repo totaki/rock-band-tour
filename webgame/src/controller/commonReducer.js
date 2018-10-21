@@ -13,14 +13,37 @@ const initialState = {
     createEventId: null,
     startEventId: null,
     stopEventId: null,
-    eventPromo: {}
+    eventPromo: {},
+    sheduleEventsIds: [],
+    finishEventsIds: {}
 };
 
-const SPEED_MODIFIER = 30;
+const getTS = (i) => {
+    return defs.events[i - 1].date.format('X')
+};
+
+const SPEED_MODIFIER = 200;
 
 export default (state = initialState, action = {}) => {
     let { timeout } = state;
     switch (action.type) {
+        case AT.setStartEventId:
+            state.sheduleEventsIds.sort((i, j) => getTS(j) - getTS(i));
+            const toStartEventId = state.sheduleEventsIds.pop();
+            return {
+                ...state,
+                sheduleEventsIds: [...state.sheduleEventsIds],
+                startEventId: toStartEventId
+            };
+        case AT.setEventId:
+            const { index } = action;
+            const sheduleEventsIds = [...state.sheduleEventsIds];
+            sheduleEventsIds.push(index);
+            return {
+                ...state,
+                showEventId: null,
+                sheduleEventsIds
+            };
         case AT.tick:
             const dt = state.dt.clone();
             dt.add(state.speed * SPEED_MODIFIER, 'minutes');

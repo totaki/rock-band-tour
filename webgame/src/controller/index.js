@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware } from 'redux';
+import defaults from '../defaults';
 import thunk from 'redux-thunk';
 import commonReducer from './commonReducer';
 import AT from './actionTypes';
@@ -58,9 +59,18 @@ const updatePromo = (promoId, eventId) => ({
 
 const store = createStore(commonReducer, applyMiddleware(thunk));
 
-const tick = () => dispatch => {
+const tick = () => (dispatch, getState) => {
     const timeout = setInterval(() => {
-            dispatch({type: AT.tick})
+            const { dt, sheduleEventsIds } = getState();
+            const eventsForStart = sheduleEventsIds.filter(i => {
+                return defaults.events[parseInt(i) - 1].date.diff(dt) <= 0
+            });
+            if (eventsForStart.length) {
+                dispatch(setSpeed(0));
+                dispatch({type: AT.setStartEventId})
+            } else {
+                dispatch({type: AT.tick})
+            }
         }, 1000);
     dispatch({type:AT.setTimeout, timeout})
 };

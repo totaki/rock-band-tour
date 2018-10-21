@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export default {
     groups: [
         {
@@ -25,21 +27,21 @@ export default {
     events: [
         {
             id: 1,
-            date: "05-01-2018",
+            date: moment('201801021800', 'YYYYMMDDhhmm'),
             place: "Some place",
             size: 50,
             price: 10
         },
         {
             id: 2,
-            date: "04-01-2018",
+            date: moment('201801031800', 'YYYYMMDDhhmm'),
             place: "Some place",
             size: 50,
             price: 10
         },
         {
             id: 3,
-            date: "06-01-2018",
+            date: moment('201801041800', 'YYYYMMDDhhmm'),
             place: "Some place",
             size: 50,
             price: 10

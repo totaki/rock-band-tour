@@ -19,7 +19,7 @@ const COMMON_MODAL_STYLE = {
 class App extends Component {
 
   render() {
-    const {group, showEventId, closeEvent, showGroupInfo, hideGroupInfo} = this.props;
+    const {group, showEventId, closeEvent, showGroupInfo, hideGroupInfo, startEventId} = this.props;
     return (
       <div className="App">
           {group ? <MainScreen/> : <ChoiceGroup/>}
@@ -38,6 +38,13 @@ class App extends Component {
             Информация о группе
             <EventInfo/>
         </Rodal>
+        <Rodal visible={!!startEventId}
+               onClose={() => {}}
+               animation="rotate"
+               showCloseButton={false}
+               customStyles={COMMON_MODAL_STYLE}>
+            {startEventId ? <Minigame/> : null}
+        </Rodal>
       </div>
     );
   }
@@ -55,6 +62,7 @@ function mapStateToProps(state) {
     return {
         group: state.group,
         showEventId: state.showEventId,
+        startEventId: state.startEventId,
         showGroupInfo: state.showGroupInfo
     };
 }
