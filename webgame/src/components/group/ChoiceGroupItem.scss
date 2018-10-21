@@ -1,11 +1,16 @@
 .choice_group_item {
     flex: 1;
-    min-width: 240px;
+    min-width: 160px;
     padding: 24px;
     text-align: center;
     border-radius: 10px;
     border: 1px;
 }
 .choice_group_item_info {
-   margin-top: 50px;
+}
+
+@media (max-width: 720px) {
+    .choice_group_item_info {
+        display: none;
+    }
 }

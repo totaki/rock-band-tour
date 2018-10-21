@@ -30,3 +30,19 @@
    position: relative;
    z-index: 10;
 }
+
+
+@media (max-width: 720px) {
+  .main_header  {
+      width: 120px;
+    text-align: center;
+  }
+  .main_header_left .timer {
+      font-size: 1em;
+
+  }
+  .main_header_left .avatar {
+      width: 148px;
+  }
+
+}
