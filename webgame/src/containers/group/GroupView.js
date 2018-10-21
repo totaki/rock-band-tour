@@ -7,7 +7,6 @@ class GroupInfo extends Component {
         const {group} = this.props;
         return (
             <div className="group_view_container">
-                <div>
                     <div className="group_members">
                         {
                             group.members.map((i) => <MemberItem member={i}
@@ -15,7 +14,6 @@ class GroupInfo extends Component {
                                                            key={`group-choice-${i.id}`}/>)
                         }
                     </div>
-                </div>
             </div>
         );
     }

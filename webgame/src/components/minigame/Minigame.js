@@ -14,7 +14,7 @@ class Minigame extends Component {
         const lvlIncrementTime = 5000;
         const scaleSpeed = 0.01;
         const maxScale = 1.1;
-        const roundTime = 15000;
+        const roundTime = 10000;
 
         const state = {
             "scores": 0,
@@ -79,7 +79,7 @@ class Minigame extends Component {
             sprite.scale.x = 0.1;
             sprite.scale.y = 0.1;
             sprite.rotation = Math.random();
-            sprite.tint = tint;
+            // sprite.tint = tint;
 
             // Opt-in to interactivity
             sprite.interactive = true;
