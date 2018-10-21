@@ -33,7 +33,8 @@ class Header extends Component {
                     <Timer/>
                 </div>
                 <div className="money">
-                    &#8381; {this.props.money}
+                    $ {this.props.money}
+                    {/*&#8381; {this.props.money}*/}
                 </div>
             </div>
         )
