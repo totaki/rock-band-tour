@@ -1,4 +1,3 @@
-import defs from '../defaults';
 import AT from './actionTypes';
 import moment from 'moment';
 import defaults from '../defaults';
@@ -25,7 +24,7 @@ const initialState = {
 };
 
 const getTS = (i) => {
-    return defs.events[i - 1].date.format('X')
+    return defaults.events[i - 1].date.format('X')
 };
 
 const SPEED_MODIFIER = 200;
@@ -101,7 +100,7 @@ export default (state = initialState, action = {}) => {
         case AT.startGame:
             return {
                 ...state,
-                group: defs.groups[state.groupIndex - 1]
+                group: defaults.groups[state.groupIndex - 1]
             };
         case AT.showGroupInfo:
             return {

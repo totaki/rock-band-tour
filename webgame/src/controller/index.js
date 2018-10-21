@@ -1,5 +1,4 @@
 import { createStore, applyMiddleware } from 'redux';
-import defaults from '../defaults';
 import thunk from 'redux-thunk';
 import commonReducer from './commonReducer';
 import AT from './actionTypes';
