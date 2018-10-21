@@ -26,8 +26,8 @@ class EventResult extends Component {
                             <p>Успешность</p>
                         </div>
                         <div>
-                            <p>{deltaMoney}</p>
-                            <p>{deltaFamous}</p>
+                            <p>{Math.floor(deltaMoney)}</p>
+                            <p>{Math.floor(deltaFamous)}</p>
                         </div>
                     </div>
                     <MainButton title={fire ? 'УРА' : 'НУ ОК'} onClick={hideEventResult}/>
