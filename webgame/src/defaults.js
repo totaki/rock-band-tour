@@ -92,23 +92,23 @@ export default {
         {
             id: 1,
             date: moment('201801021800', 'YYYYMMDDhhmm'),
-            place: "Some place",
+            place: "Harat's pub",
             size: 50,
-            price: 10
+            price: 5
         },
         {
             id: 2,
             date: moment('201801031800', 'YYYYMMDDhhmm'),
-            place: "Some place",
-            size: 50,
+            place: "ДК Кирова",
+            size: 100,
             price: 10
         },
         {
             id: 3,
             date: moment('201801041800', 'YYYYMMDDhhmm'),
-            place: "Some place",
-            size: 50,
-            price: 10
+            place: "Дизель Арена",
+            size: 150,
+            price: 15
         }
     ],
     eventsPromo: [
