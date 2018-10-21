@@ -7,7 +7,7 @@ const Avatar = ({ className, avatar, size, onClick=()=> {} }) => {
         width: '100%',
         cursor: "pointer"
     };
-    const classes = `avatar ${className}`;
+    const classes = `${className}`;
     return (
         <div className={classes} style={style} onClick={() => onClick()}/>
     )

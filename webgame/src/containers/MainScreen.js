@@ -11,7 +11,7 @@ class MainScreen extends Component {
         return (
             <div>
                 <Map onClick={console.log}/>
-                <Header avatar={group.avatar}/>
+                <Header group={group}/>
                 <MainMenu/>
             </div>
         )
