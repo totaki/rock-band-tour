@@ -1,105 +1,28 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Created with Inkscape (http://www.inkscape.org/) -->
-
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="54.617409mm"
-   height="18.406534mm"
-   viewBox="0 0 193.52625 65.220003"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.91 r13725"
-   sodipodi:docname="logo.svg">
-  <defs
-     id="defs4" />
-  <sodipodi:namedview
-     id="base"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1.0"
-     inkscape:pageopacity="0.0"
-     inkscape:pageshadow="2"
-     inkscape:zoom="1.979899"
-     inkscape:cx="-3.0904675"
-     inkscape:cy="31.019807"
-     inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     showgrid="false"
-     inkscape:window-width="1920"
-     inkscape:window-height="1016"
-     inkscape:window-x="1080"
-     inkscape:window-y="867"
-     inkscape:window-maximized="1"
-     fit-margin-top="0"
-     fit-margin-left="0"
-     fit-margin-right="0"
-     fit-margin-bottom="0" />
-  <metadata
-     id="metadata7">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <g
-     inkscape:label="Layer 1"
-     inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(-242.52743,-357.58196)">
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot4150"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
-         id="flowRegion4152"><rect
-           id="rect4154"
-           width="86.368042"
-           height="65.154839"
-           x="128.28937"
-           y="454.3519" /></flowRegion><flowPara
-         id="flowPara4156"></flowPara></flowRoot>    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:40px;line-height:0%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="41.921329"
-       y="247.27063"
-       id="text4158"
-       sodipodi:linespacing="0%"><tspan
-         sodipodi:role="line"
-         id="tspan4160"
-         x="41.921329"
-         y="247.27063" /><tspan
-         sodipodi:role="line"
-         x="41.921329"
-         y="247.27063"
-         id="tspan4162" /><tspan
-         sodipodi:role="line"
-         x="41.921329"
-         y="247.27063"
-         id="tspan4164" /></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:81.99999928%;font-family:'Fugaz One';-inkscape-font-specification:'Fugaz One';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:#ffffff;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="339.39243"
-       y="388.69196"
-       id="text4166"
-       sodipodi:linespacing="81.999999%"><tspan
-         sodipodi:role="line"
-         id="tspan4168"
-         x="339.39243"
-         y="388.69196">RockBand</tspan><tspan
-         sodipodi:role="line"
-         x="339.39243"
-         y="421.49194"
-         id="tspan4170">Tour</tspan></text>
-  </g>
+<svg width="146" height="101" viewBox="0 0 146 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 1H11.6364C14.8728 1 17.382 1.89289 19.0546 3.53564C20.4728 4.9285 21.2365 6.89285 21.2365 9.32142C21.2365 13.357 19.0184 15.8928 15.782 17.0713L22 25.9998H15.4547L9.92735 18H5.59996V26H0V1ZM11.2727 13.1428C14.0001 13.1428 15.5637 11.7142 15.5637 9.53575C15.5637 7.17849 13.8911 5.9644 11.1637 5.9644H5.59996V13.143H11.2727V13.1428Z" fill="white"/>
+<path d="M25 13.5C25 6.07868 30.6976 0 38.5362 0C46.3748 0 52 6.00422 52 13.5C52 20.9213 46.3024 27 38.4636 27C30.625 27 25 20.9958 25 13.5ZM46.157 13.5C46.157 9.02489 42.9635 5.29546 38.4636 5.29546C33.9637 5.29546 30.8428 8.95001 30.8428 13.5C30.8428 17.9751 34.0363 21.7043 38.5362 21.7043C43.0361 21.7043 46.157 18.0498 46.157 13.5Z" fill="white"/>
+<path d="M56 13.5001C56 6.07873 61.8052 0 70.1255 0C75.234 0 78.0978 1.86452 80.6134 4.25134L77.0528 8.2044C74.9632 6.377 73.1829 5.2955 70.0868 5.2955C65.5203 5.2955 62.2307 8.95008 62.2307 13.5001C62.2307 17.9752 65.4429 21.7045 70.0868 21.7045C73.1829 21.7045 75.079 20.5112 77.2076 18.6465L81 22.5622C78.2136 25.4338 75.1175 27 69.8931 27C61.9212 27.0002 56 21.0706 56 13.5001Z" fill="white"/>
+<path d="M85.0002 1H90.5606V11.9285L100.815 1H107.531L97.2401 11.6071L108 25.9998H101.32L93.4852 15.3572L90.5604 18.3572V26H85V1H85.0002Z" fill="white"/>
+<path d="M0 36H12.0168C14.9747 36 17.3044 36.8487 18.7832 38.3914C19.9663 39.6256 20.558 41.1299 20.558 43.0586C20.558 46.1058 19.0051 47.8029 17.1563 48.8829C20.1514 50.0785 22 51.8915 22 55.5943C22 60.5316 18.1547 63 12.3126 63H0V36ZM10.7967 46.9158C13.311 46.9158 14.9009 46.0672 14.9009 43.9845C14.9009 42.2103 13.5699 41.2073 11.1665 41.2073H5.54622V46.9161H10.7967V46.9158ZM12.3126 57.7931C14.8269 57.7931 16.3427 56.8674 16.3427 54.7845C16.3427 52.9715 15.0486 51.8531 12.1277 51.8531H5.54622V57.7931H12.3126Z" fill="white"/>
+<path d="M34.9165 36H40.0837L51 63H45.1415L42.8127 56.9871H32.0418L29.713 63H24L34.9165 36ZM40.8113 51.7786L37.4271 43.085L34.043 51.7786H40.8113Z" fill="white"/>
+<path d="M55 36H60.479L73.1352 52.6242V36H79V63H73.9455L60.8651 45.8358V63H55V36Z" fill="white"/>
+<path d="M85 36H94.7349C102.58 36 108 41.8243 108 49.5001C108 57.0986 102.58 63 94.7349 63H85V36ZM94.7349 57.6386C99.2278 57.6386 102.259 54.3601 102.259 49.5001C102.259 44.7173 99.2278 41.3616 94.7349 41.3616H90.4914V57.6386H94.7349Z" fill="white"/>
+<path d="M8.07932 79.2742H0V74H22V79.2742H13.9207V100H8.07932V79.2742Z" fill="white"/>
+<path d="M24 87.4999C24 80.0787 29.9085 74 38.0376 74C46.1667 74 52 80.0042 52 87.4999C52 94.9211 46.0915 101 37.9624 101C29.8333 101 24 94.9958 24 87.4999ZM45.9409 87.4999C45.9409 83.025 42.6289 79.2956 37.9624 79.2956C33.2957 79.2956 30.0591 82.9502 30.0591 87.4999C30.0591 91.975 33.3709 95.7044 38.0376 95.7044C42.7043 95.7044 45.9409 92.0498 45.9409 87.4999Z" fill="white"/>
+<path d="M56 89.1896V74H62.059V89.0378C62.059 93.367 64.3017 95.6076 68 95.6076C71.6983 95.6076 73.941 93.4429 73.941 89.2278V74H80V88.9999C80 97.0505 75.318 101 67.9214 101C60.5247 101 56 97.0123 56 89.1896Z" fill="white"/>
+<path d="M85 74H97.1653C100.549 74 103.172 74.9286 104.921 76.6371C106.403 78.0855 107.202 80.1283 107.202 82.6542C107.202 86.8515 104.883 89.4886 101.499 90.7143L108 100H101.157L95.3786 91.68H90.8547V100H85.0002V74H85ZM96.7851 86.6286C99.6362 86.6286 101.271 85.143 101.271 82.8771C101.271 80.4259 99.5222 79.1628 96.671 79.1628H90.8545V86.6286H96.7851Z" fill="white"/>
+<g filter="url(#filter0_d)">
+<path d="M122.272 14L116 37.8908L122.428 38.6907L117.134 58L134.839 31.6523L128.554 30.8703L136 15.708L122.272 14Z" fill="#F71D00"/>
+</g>
+<defs>
+<filter id="filter0_d" x="106" y="4" width="40" height="64" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset/>
+<feGaussianBlur stdDeviation="5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.847059 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+</defs>
 </svg>
