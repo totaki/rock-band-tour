@@ -31,9 +31,11 @@ const showGroupInfo = (value) => {
     }
 };
 
-const hideEventResult = () => {
+const showEventResult = (value) => {
+    console.log(value);
     return {
-        type: AT.hideEventResult
+        type: AT.showEventResult,
+        value
     }
 };
 
@@ -110,5 +112,5 @@ export {
     store,
     tick,
     eventResult,
-    hideEventResult
+    showEventResult
 }

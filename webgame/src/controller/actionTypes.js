@@ -11,5 +11,5 @@ export default {
     eventResult: 'eventResult',
     setTimeout: 'setTimeout',
     tick: 'tick',
-    hideEventResult: 'hideEventResult'
+    showEventResult: 'showEventResult'
 }

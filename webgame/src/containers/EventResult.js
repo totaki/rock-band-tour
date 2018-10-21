@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import defaults from '../defaults';
 import './EventInfo.scss'
-import { eventAction, updatePromo } from "../controller";
+import {eventAction, showEventResult, updatePromo} from "../controller";
 import MainButton from "../components/button/MainButton";
 
 
@@ -73,41 +73,28 @@ const RightColumn = ({ promos=[], setPromo=() => {} }) => {
 
 class EventResult extends Component {
     render() {
-        const { showEventId, updatePromo, eventPromo, closeEvent, createEvent, sheduleEventsIds } = this.props;
-        const eventSheduled = sheduleEventsIds.indexOf(showEventId) > -1;
-        const eventData = defaults.events[showEventId - 1];
-        const setPromo = !eventSheduled ? (i) => updatePromo(i, showEventId) : () => {};
+        const { deltaMoney, deltaFamous, hideEventResult } = this.props;
+        console.log(deltaMoney, deltaFamous);
         return (
-            <div className="event_info">
-                <div className="event_info_container">
-                    <LeftColumn {...eventData}/>
-                    <RightColumn setPromo={setPromo}
-                                 promos={eventPromo[showEventId] || []}/>
-                </div>
-                <div className="event_info_control">
-                    <div className="event_cancel_btn" onClick={closeEvent}>Отмена</div>
-                    {(showEventId && !eventSheduled) ? <MainButton title="Выбрать" onClick={() => createEvent(showEventId)}/> : null}
-                </div>
-            </div>
+        <div className="event_info">
+             Money {deltaMoney}
+             Famous {deltaFamous}
+        </div>
         );
     }
 }
 
 function mapStateToProps(state) {
     return {
-        setEventId: state.setEventId,
-        showEventId: state.showEventId,
-        eventPromo: state.eventPromo,
-        sheduleEventsIds: state.sheduleEventsIds
+        deltaMoney: state.deltaMoney,
+        deltaFamous: state.deltaFamous
     };
 }
 
-function mapStateToDispatch(dispatch) {
+const mapStateToDispatch = (dispatch) => {
     return {
-        updatePromo: (promoId, eventId) => dispatch(updatePromo(promoId, eventId)),
-        createEvent: (i) => dispatch(eventAction.create(i)),
-        closeEvent: () => dispatch(eventAction.show(null)),
+        hideEventResult: () => dispatch(showEventResult(false))
     };
-}
+};
 
 export default connect(mapStateToProps, mapStateToDispatch)(EventResult);

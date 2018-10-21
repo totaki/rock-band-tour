@@ -9,11 +9,14 @@ const initialState = {
     groupIndex: null,
     group: null,
     timeout: null,
-    dt: moment('201801011200', 'YYYYMMDDhhmm'),
+    dt: moment('201801031200', 'YYYYMMDDhhmm'),
     speed: 0,
     money: INITIAL_MONEY,
+    deltaMoney: 0,
     famous: INITIAL_FASMOUS,
+    deltaFamous: 0,
     showGroupInfo: null,
+    showEventResult: null,
     showEventId: null,
     createEventId: null,
     startEventId: null,
@@ -115,13 +118,13 @@ export default (state = initialState, action = {}) => {
         case AT.eventResult:
             console.log(action);
             let volumeAffected = action.eventData.size * state.famous * 0.05;
-            volumeAffected += action.eventData.size * action.promoResult * 0.01;
+            volumeAffected += action.eventData.size * action.promoResult * 0.05;
 
             if (volumeAffected > action.eventData.size) {
                 volumeAffected = action.eventData.size
             }
-            if (volumeAffected < action.eventData.size / 20) {
-                volumeAffected = action.eventData.size / 20
+            if (volumeAffected < action.eventData.size / 10) {
+                volumeAffected = action.eventData.size / 10
             }
             const moneyEarned = volumeAffected * action.eventData.price;
             console.log(volumeAffected);
@@ -133,16 +136,18 @@ export default (state = initialState, action = {}) => {
             state = {
                 ...state,
                 famous: famous,
+                deltaFamous: famous - state.famous,
                 money: state.money + moneyEarned,
+                deltaMoney: moneyEarned,
                 startEventId: null,
                 stopEventId: action.eventData.id,
             };
             console.log(state);
             return state;
-        case AT.hideEventResult:
+        case AT.showEventResult:
             return {
                 ...state,
-                stopEventId: null
+                showEventResult: action.value
             };
         default:
             return state
