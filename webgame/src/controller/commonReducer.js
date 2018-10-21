@@ -4,9 +4,15 @@ import defaults from '../defaults';
 
 const INITIAL_MONEY = 100;
 const INITIAL_FASMOUS= 10;
+const MAX_FAMOUS = 10000;
+const MIN_VALUE_AFFECTED_PRECENT = 0.1;
+
+const FAMOUS_MULTIPLIER = 0.025;
+const PROMO_MULTIPLIER = 0.01;
+const SCORES_MULTIPLIER = 0.1;
 
 const initialState = {
-    groupIndex: null,
+    groupIndex: 1,
     group: null,
     timeout: null,
     dt: moment('201801031200', 'YYYYMMDDhhmm'),
@@ -15,6 +21,7 @@ const initialState = {
     deltaMoney: 0,
     famous: INITIAL_FASMOUS,
     deltaFamous: 0,
+    scores: 0,
     showGroupInfo: null,
     showEventResult: null,
     showEventId: null,
@@ -117,27 +124,28 @@ export default (state = initialState, action = {}) => {
             };
         case AT.eventResult:
             console.log(action);
-            let volumeAffected = action.eventData.size * state.famous * 0.05;
-            volumeAffected += action.eventData.size * action.promoResult * 0.05;
+            let volumeAffected = action.eventData.size * state.famous * FAMOUS_MULTIPLIER;
+            volumeAffected += action.eventData.size * action.promoResult * PROMO_MULTIPLIER;
 
             if (volumeAffected > action.eventData.size) {
                 volumeAffected = action.eventData.size
             }
-            if (volumeAffected < action.eventData.size / 10) {
-                volumeAffected = action.eventData.size / 10
+            if (volumeAffected < action.eventData.size * MIN_VALUE_AFFECTED_PRECENT) {
+                volumeAffected = action.eventData.size * MIN_VALUE_AFFECTED_PRECENT
             }
             const moneyEarned = volumeAffected * action.eventData.price;
             console.log(volumeAffected);
             console.log(moneyEarned);
-            let famous = state.famous + (volumeAffected * action.eventScores * 0.1);
-            if (famous > 10000){
-                famous = 10000
+            let famous = state.famous + (volumeAffected * action.eventScores * SCORES_MULTIPLIER);
+            if (famous > MAX_FAMOUS){
+                famous = MAX_FAMOUS
             }
             state = {
                 ...state,
                 famous: famous,
                 deltaFamous: famous - state.famous,
                 money: state.money + moneyEarned,
+                scores: action.eventScores,
                 deltaMoney: moneyEarned,
                 startEventId: null,
                 stopEventId: action.eventData.id,
