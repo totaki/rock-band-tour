@@ -31,6 +31,14 @@ const showGroupInfo = (value) => {
     }
 };
 
+const showEventResult = (value) => {
+    console.log(value);
+    return {
+        type: AT.showEventResult,
+        value
+    }
+};
+
 
 const eventAction = {
     show: (i) => ({
@@ -53,21 +61,25 @@ const eventAction = {
 
 const updatePromo = (promoId, eventId) => ({
         type: AT.updateEventPromo,
+        price: defaults.eventsPromo[promoId][1],
         eventId,
-        promoId
+        promoId,
 });
 
 
 const eventResult = (eventScores, eventId, eventPromo) => {
     console.log(eventId, eventPromo);
     const promo = eventPromo[eventId];
-    const promoResult = promo.reduce(function (sum, current) {
-        return sum + defaults.eventsPromo[current][1]
-    }) / 10;
+    let promoResult = 0;
+    if (promo) {
+        promoResult = promo.reduce(function (sum, current) {
+            return sum + defaults.eventsPromo[current][1]
+        }) / 10;
+    }
     return {
         type: AT.eventResult,
         eventScores: eventScores,
-        eventData: defaults.events[eventId],
+        eventData: defaults.events[eventId - 1],
         promoResult: promoResult
     }
 };
@@ -99,5 +111,6 @@ export {
     updatePromo,
     store,
     tick,
-    eventResult
+    eventResult,
+    showEventResult
 }

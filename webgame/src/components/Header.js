@@ -33,7 +33,7 @@ class Header extends Component {
                     <Timer/>
                 </div>
                 <div className="money">
-                    &#8381; {10000}
+                    &#8381; {this.props.money}
                 </div>
             </div>
         )
@@ -46,4 +46,11 @@ function mapStateToDispatch(dispatch) {
     };
 }
 
-export default connect(null, mapStateToDispatch)(Header);
+const  mapStateToProps = (state) => {
+    return {
+        money: state.money,
+        famous: state.famous
+    };
+};
+
+export default connect(mapStateToProps, mapStateToDispatch)(Header);

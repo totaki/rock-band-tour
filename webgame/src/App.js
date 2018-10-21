@@ -7,9 +7,10 @@ import './App.css';
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
 import EventInfo from "./containers/EventInfo";
-import {eventAction, showGroupInfo} from "./controller";
+import {eventAction, showEventResult, showGroupInfo} from "./controller";
 import Minigame from "./components/minigame/Minigame";
 import GroupInfo from "./containers/group/GroupView";
+import EventResult from "./containers/EventResult";
 
 const COMMON_MODAL_STYLE = {
     backgroundColor: "#161616",
@@ -20,7 +21,9 @@ const COMMON_MODAL_STYLE = {
 class App extends Component {
 
   render() {
-    const {group, showEventId, closeEvent, showGroupInfo, hideGroupInfo, startEventId} = this.props;
+    const {group, showEventId, closeEvent, showGroupInfo,
+        hideGroupInfo, startEventId, stopEventId, showEventResult,
+        hideEventResult} = this.props;
     return (
       <div className="App">
           {group ? <MainScreen/> : <ChoiceGroup/>}
@@ -45,6 +48,13 @@ class App extends Component {
                customStyles={COMMON_MODAL_STYLE}>
             {startEventId ? <Minigame/> : null}
         </Rodal>
+        <Rodal visible={!!showEventResult}
+               onClose={hideEventResult}
+               animation="slideRight"
+               showCloseButton={false}
+               customStyles={COMMON_MODAL_STYLE}>
+            <EventResult/>}
+        </Rodal>
       </div>
     );
   }
@@ -63,14 +73,17 @@ function mapStateToProps(state) {
         group: state.group,
         showEventId: state.showEventId,
         showGroupInfo: state.showGroupInfo,
-        startEventId: state.startEventId
+        showEventResult: state.showEventResult,
+        startEventId: state.startEventId,
+        stopEventId: state.stopEventId
     };
 }
 
 function mapStateToDispatch(dispatch) {
     return {
         closeEvent: () => dispatch(eventAction.show(null)),
-        hideGroupInfo: () => dispatch(showGroupInfo(false))
+        hideGroupInfo: () => dispatch(showGroupInfo(false)),
+        hideEventResult: () => dispatch(showEventResult(false))
     };
 }
 
