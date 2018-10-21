@@ -31,6 +31,12 @@ const showGroupInfo = (value) => {
     }
 };
 
+const hideEventResult = () => {
+    return {
+        type: AT.hideEventResult
+    }
+};
+
 
 const eventAction = {
     show: (i) => ({
@@ -103,5 +109,6 @@ export {
     updatePromo,
     store,
     tick,
-    eventResult
+    eventResult,
+    hideEventResult
 }

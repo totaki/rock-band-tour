@@ -139,7 +139,11 @@ export default (state = initialState, action = {}) => {
             };
             console.log(state);
             return state;
-
+        case AT.hideEventResult:
+            return {
+                ...state,
+                stopEventId: null
+            };
         default:
             return state
     }

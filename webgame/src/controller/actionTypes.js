@@ -10,5 +10,6 @@ export default {
     updateEventPromo: 'updateEventPromo',
     eventResult: 'eventResult',
     setTimeout: 'setTimeout',
-    tick: 'tick'
+    tick: 'tick',
+    hideEventResult: 'hideEventResult'
 }
