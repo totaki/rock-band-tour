@@ -7,7 +7,11 @@ const Avatar = ({ className, avatar, size, onClick=()=> {} }) => {
         width: '100%',
         cursor: "pointer"
     };
-    const classes = `${className}`;
+    if (avatar) {
+        style.backgroundImage = `url(${avatar})`;
+    }
+
+    const classes = className? `avatar ${className}` : 'avatar';
     return (
         <div className={classes} style={style} onClick={() => onClick()}/>
     )
