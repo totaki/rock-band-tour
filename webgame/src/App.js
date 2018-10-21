@@ -7,7 +7,7 @@ import './App.css';
 import Rodal from 'rodal';
 import 'rodal/lib/rodal.css';
 import EventInfo from "./containers/EventInfo";
-import {eventAction, showEventResult, showStore, showGroupInfo} from "./controller";
+import {eventAction, showEventResult, showStore, showGroupInfo, showInstruments} from "./controller";
 import Minigame from "./components/minigame/Minigame";
 import GroupInfo from "./containers/group/GroupView";
 import EventResult from "./containers/EventResult";
@@ -97,7 +97,9 @@ function mapStateToDispatch(dispatch) {
         closeEvent: () => dispatch(eventAction.show(null)),
         hideGroupInfo: () => dispatch(showGroupInfo(false)),
         hideEventResult: () => dispatch(showEventResult(false)),
-        hideStore: () => dispatch(showStore(false)),
+        hideStore: () => {
+            dispatch(showStore(false));
+            dispatch(showInstruments(false))},
     };
 }
 

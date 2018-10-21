@@ -12,5 +12,7 @@ export default {
     setTimeout: 'setTimeout',
     tick: 'tick',
     showEventResult: 'showEventResult',
-    showStore: 'showStore'
+    showStore: 'showStore',
+    showInstruments: 'showInstruments',
+    showTransfer: 'showTransfer'
 }

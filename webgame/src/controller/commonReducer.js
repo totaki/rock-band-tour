@@ -25,6 +25,8 @@ const initialState = {
     showGroupInfo: null,
     showStore: null,
     showEventResult: null,
+    showInstruments: null,
+    showTransfer: null,
     showEventId: null,
     createEventId: null,
     startEventId: null,
@@ -117,6 +119,16 @@ export default (state = initialState, action = {}) => {
             return {
                 ...state,
                 showStore: action.showStore
+            };
+            case AT.showInstruments:
+            return {
+                ...state,
+                showInstruments: action.showInstruments
+            };
+            case AT.showTransfer:
+            return {
+                ...state,
+                showTransfer: action.showTransfer
             };
         case AT.startGame:
             return {

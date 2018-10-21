@@ -39,6 +39,22 @@ const showStore = (value) => {
     }
 };
 
+const showInstruments = (value) => {
+    console.log(value);
+    return {
+        type: AT.showInstruments,
+        showInstruments: value
+    }
+};
+
+const showTransfer = (value) => {
+    console.log(value);
+    return {
+        type: AT.showTransfer,
+        showTransfer: value
+    }
+};
+
 const showEventResult = (value) => {
     console.log(value);
     return {
@@ -118,6 +134,8 @@ export {
     setSpeed,
     eventAction,
     updatePromo,
+    showTransfer,
+    showInstruments,
     store,
     tick,
     eventResult,
