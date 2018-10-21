@@ -9,11 +9,14 @@ const initialState = {
     groupIndex: null,
     group: null,
     timeout: null,
-    dt: moment('201801011200', 'YYYYMMDDhhmm'),
+    dt: moment('201801031200', 'YYYYMMDDhhmm'),
     speed: 0,
     money: INITIAL_MONEY,
+    deltaMoney: 0,
     famous: INITIAL_FASMOUS,
+    deltaFamous: 0,
     showGroupInfo: null,
+    showEventResult: null,
     showEventId: null,
     createEventId: null,
     startEventId: null,
@@ -33,6 +36,7 @@ export default (state = initialState, action = {}) => {
     let { timeout } = state;
     switch (action.type) {
         case AT.setStartEventId:
+            console.log(state.sheduleEventsIds);
             state.sheduleEventsIds.sort((i, j) => getTS(j) - getTS(i));
             const toStartEventId = state.sheduleEventsIds.pop();
             return {
@@ -42,6 +46,7 @@ export default (state = initialState, action = {}) => {
             };
         case AT.setEventId:
             const { index } = action;
+            console.log('setEventId',action);
             const sheduleEventsIds = [...state.sheduleEventsIds];
             sheduleEventsIds.push(index);
             return {
@@ -59,18 +64,21 @@ export default (state = initialState, action = {}) => {
         case AT.updateEventPromo:
             const eventPromo = {...state.eventPromo};
             const { promoId, eventId } = action;
+            let price = action.price;
             if (!eventPromo[eventId]) {
                 eventPromo[eventId] = [promoId]
             } else {
                 if (eventPromo[eventId].indexOf(promoId) > -1) {
                     eventPromo[eventId] = eventPromo[eventId].filter(i => i !== promoId)
+                    price = -price;
                 } else {
                     eventPromo[eventId].push(promoId)
                 }
             }
             return {
                 ...state,
-                eventPromo: eventPromo
+                eventPromo: eventPromo,
+                money: state.money - price
             };
         case AT.showEventId:
             return {
@@ -109,20 +117,38 @@ export default (state = initialState, action = {}) => {
             };
         case AT.eventResult:
             console.log(action);
-            const volumeAffected = action.eventData.size * (action.promoResult + state.famous) / 10;
+            let volumeAffected = action.eventData.size * state.famous * 0.05;
+            volumeAffected += action.eventData.size * action.promoResult * 0.05;
+
+            if (volumeAffected > action.eventData.size) {
+                volumeAffected = action.eventData.size
+            }
+            if (volumeAffected < action.eventData.size / 10) {
+                volumeAffected = action.eventData.size / 10
+            }
             const moneyEarned = volumeAffected * action.eventData.price;
             console.log(volumeAffected);
             console.log(moneyEarned);
+            let famous = state.famous + (volumeAffected * action.eventScores * 0.1);
+            if (famous > 10000){
+                famous = 10000
+            }
             state = {
                 ...state,
-                famous: state.famous + (action.eventScores * volumeAffected * 0.1),
+                famous: famous,
+                deltaFamous: famous - state.famous,
                 money: state.money + moneyEarned,
+                deltaMoney: moneyEarned,
                 startEventId: null,
                 stopEventId: action.eventData.id,
             };
             console.log(state);
             return state;
-
+        case AT.showEventResult:
+            return {
+                ...state,
+                showEventResult: action.value
+            };
         default:
             return state
     }

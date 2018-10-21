@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import * as PIXI from "pixi.js";
-import {eventResult} from "../../controller";
+import {eventResult, showEventResult} from "../../controller";
 import connect from "react-redux/es/connect/connect";
 
 
@@ -11,9 +11,9 @@ class Minigame extends Component {
         const bottleImage = '/assets/images/bottle.png';
         const backImage = '/assets/images/stage.png';
         const lvlIncrementTime = 5000;
-        const scaleSpeed = 0.005;
+        const scaleSpeed = 0.01;
         const maxScale = 1.1;
-        const roundTime = 5000;
+        const roundTime = 3000;
 
         const state = {
             "scores": 0,
@@ -125,7 +125,8 @@ class Minigame extends Component {
                 clearInterval(inteval);
             });
             app.stop();
-            this.props.eventResult(state.scores, this.props.startEventId, this.props.eventPromo)
+            this.props.eventResult(state.scores, this.props.startEventId, this.props.eventPromo);
+            this.props.showEventResult()
         };
 
         incrementLevel();
@@ -144,6 +145,7 @@ class Minigame extends Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         eventResult: (a, b, c) => dispatch(eventResult(a, b, c)),
+        showEventResult: () => dispatch(showEventResult(true)),
     };
 };
 
