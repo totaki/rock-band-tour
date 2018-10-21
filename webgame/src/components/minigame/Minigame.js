@@ -13,7 +13,7 @@ class Minigame extends Component {
         const lvlIncrementTime = 5000;
         const scaleSpeed = 0.01;
         const maxScale = 1.1;
-        const roundTime = 3000;
+        const roundTime = 15000;
 
         const state = {
             "scores": 0,
@@ -110,8 +110,8 @@ class Minigame extends Component {
         }
 
         function incrementLevel(){
-            state.intervals.push(setInterval(produceSprites, 1500, 1, spriteImage, onSpriteClick));
-            state.intervals.push(setInterval(produceSprites, 2000, 1, bottleImage, onBottleClick, 0xac0000));
+            state.intervals.push(setInterval(produceSprites, 700, 1, spriteImage, onSpriteClick));
+            state.intervals.push(setInterval(produceSprites, 1000, 1, bottleImage, onBottleClick, 0xac0000));
         }
 
         const stopGame = () => {
