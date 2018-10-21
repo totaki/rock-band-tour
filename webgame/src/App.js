@@ -45,7 +45,11 @@ class App extends Component {
                onClose={() => {}}
                animation="rotate"
                showCloseButton={false}
-               customStyles={COMMON_MODAL_STYLE}>
+               customStyles={{
+                   backgroundColor: "#161616",
+                   width: 640,
+                   height: 360
+               }}>
             {startEventId ? <Minigame/> : null}
         </Rodal>
         <Rodal visible={!!showEventResult}
@@ -53,7 +57,7 @@ class App extends Component {
                animation="slideRight"
                showCloseButton={false}
                customStyles={COMMON_MODAL_STYLE}>
-            <EventResult/>}
+            <EventResult/>
         </Rodal>
       </div>
     );
