@@ -61,9 +61,12 @@ const updatePromo = (promoId, eventId) => ({
 const eventResult = (eventScores, eventId, eventPromo) => {
     console.log(eventId, eventPromo);
     const promo = eventPromo[eventId];
-    const promoResult = promo.reduce(function (sum, current) {
-        return sum + defaults.eventsPromo[current][1]
-    }) / 10;
+    let promoResult = 0;
+    if (promo) {
+        promoResult = promo.reduce(function (sum, current) {
+            return sum + defaults.eventsPromo[current][1]
+        }) / 10;
+    }
     return {
         type: AT.eventResult,
         eventScores: eventScores,

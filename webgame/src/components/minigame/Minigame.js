@@ -11,9 +11,9 @@ class Minigame extends Component {
         const bottleImage = '/assets/images/bottle.png';
         const backImage = '/assets/images/stage.png';
         const lvlIncrementTime = 5000;
-        const scaleSpeed = 0.005;
+        const scaleSpeed = 0.01;
         const maxScale = 1.1;
-        const roundTime = 5000;
+        const roundTime = 15000;
 
         const state = {
             "scores": 0,

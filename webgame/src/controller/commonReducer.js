@@ -89,13 +89,25 @@ export default (state = initialState, action = {}) => {
             };
         case AT.eventResult:
             console.log(action);
-            const volumeAffected = action.eventData.size * (action.promoResult + state.famous) / 10;
+            let volumeAffected = action.eventData.size * state.famous * 0.05;
+            volumeAffected += action.eventData.size * action.promoResult * 0.01;
+
+            if (volumeAffected > action.eventData.size) {
+                volumeAffected = action.eventData.size
+            }
+            if (volumeAffected < action.eventData.size / 20) {
+                volumeAffected = action.eventData.size / 20
+            }
             const moneyEarned = volumeAffected * action.eventData.price;
             console.log(volumeAffected);
             console.log(moneyEarned);
+            let famous = state.famous + (volumeAffected * action.eventScores * 0.1);
+            if (famous > 10000){
+                famous = 10000
+            }
             state = {
                 ...state,
-                famous: state.famous + (action.eventScores * volumeAffected * 0.1),
+                famous: famous,
                 money: state.money + moneyEarned,
                 startEventId: null,
                 stopEventId: action.eventData.id,
