@@ -1,4 +1,3 @@
-import defs from '../defaults';
 import AT from './actionTypes';
 import moment from 'moment';
 import defaults from '../defaults';
@@ -17,18 +16,39 @@ const initialState = {
     showGroupInfo: null,
     showEventId: null,
     createEventId: null,
-    startEventId: 1,
+    startEventId: null,
     stopEventId: null,
-    eventPromo: {
-        1: [1,2]
-    }
+    eventPromo: {},
+    sheduleEventsIds: [],
+    finishEventsIds: {}
 };
 
-const SPEED_MODIFIER = 30;
+const getTS = (i) => {
+    return defaults.events[i - 1].date.format('X')
+};
+
+const SPEED_MODIFIER = 200;
 
 export default (state = initialState, action = {}) => {
     let { timeout } = state;
     switch (action.type) {
+        case AT.setStartEventId:
+            state.sheduleEventsIds.sort((i, j) => getTS(j) - getTS(i));
+            const toStartEventId = state.sheduleEventsIds.pop();
+            return {
+                ...state,
+                sheduleEventsIds: [...state.sheduleEventsIds],
+                startEventId: toStartEventId
+            };
+        case AT.setEventId:
+            const { index } = action;
+            const sheduleEventsIds = [...state.sheduleEventsIds];
+            sheduleEventsIds.push(index);
+            return {
+                ...state,
+                showEventId: null,
+                sheduleEventsIds
+            };
         case AT.tick:
             const dt = state.dt.clone();
             dt.add(state.speed * SPEED_MODIFIER, 'minutes');
@@ -80,7 +100,7 @@ export default (state = initialState, action = {}) => {
         case AT.startGame:
             return {
                 ...state,
-                group: defs.groups[state.groupIndex - 1]
+                group: defaults.groups[state.groupIndex - 1]
             };
         case AT.showGroupInfo:
             return {

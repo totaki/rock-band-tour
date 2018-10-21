@@ -9,6 +9,7 @@ import 'rodal/lib/rodal.css';
 import EventInfo from "./containers/EventInfo";
 import {eventAction, showGroupInfo} from "./controller";
 import Minigame from "./components/minigame/Minigame";
+import GroupInfo from "./containers/group/GroupView";
 
 const COMMON_MODAL_STYLE = {
     backgroundColor: "#161616",
@@ -35,15 +36,15 @@ class App extends Component {
                animation="slideRight"
                showCloseButton={false}
                customStyles={COMMON_MODAL_STYLE}>
-            Информация о группе
-            <EventInfo/>
+            {showGroupInfo ? <GroupInfo group={group}/>: <div/>}
         </Rodal>
-          <Rodal showCloseButton={false}
-                 visible={!!startEventId}
-                 onClose={()=> {}}
-                 customStyles={COMMON_MODAL_STYLE}>
-              <Minigame/>
-          </Rodal>
+        <Rodal visible={!!startEventId}
+               onClose={() => {}}
+               animation="rotate"
+               showCloseButton={false}
+               customStyles={COMMON_MODAL_STYLE}>
+            {startEventId ? <Minigame/> : null}
+        </Rodal>
       </div>
     );
   }

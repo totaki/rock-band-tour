@@ -7,7 +7,7 @@ class Timer extends Component {
     render() {
         const { dt } = this.props;
         const dateString = dt.format('DD.MM.YYYY');
-        const timeString = dt.format('hh:mm');
+        const timeString = dt.format('HH:mm');
         return (
             <div>
                 <div className="timer">
