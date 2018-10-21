@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import * as PIXI from "pixi.js";
+import * as PixiSound from "pixi-sound";
 import {eventResult, showEventResult} from "../../controller";
 import connect from "react-redux/es/connect/connect";
 
@@ -46,12 +47,16 @@ class Minigame extends Component {
             scoreText.setText("Score: " + value)
         };
 
+        const wowSound = PixiSound.sound.Sound.from('/assets/sounds/sprite.mp3');
+        const bottleSound = PixiSound.sound.Sound.from('/assets/sounds/bottle.mp3');
+
         // Scale mode for all textures, will retain pixelation
         PIXI.settings.SCALE_MODE = PIXI.SCALE_MODES.NEAREST;
 
         function onSpriteClick (e) {
             state.scores += 10;
             e.target.visible = false;
+            wowSound.play();
             // scoreText.tint = 0x00ac00;
             // e.target.destroy({texture: true})
         }
@@ -59,6 +64,7 @@ class Minigame extends Component {
         function onBottleClick (e) {
             state.scores -= 10;
             e.target.visible = false;
+            bottleSound.play()
             // scoreText.tint = 0xac0000;
             // e.target.destroy({texture: true})
         }
