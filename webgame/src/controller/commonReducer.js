@@ -1,6 +1,10 @@
 import defs from '../defaults';
 import AT from './actionTypes';
 import moment from 'moment';
+import defaults from '../defaults';
+
+const INITIAL_MONEY = 100;
+const INITIAL_FASMOUS= 10;
 
 const initialState = {
     groupIndex: null,
@@ -8,6 +12,8 @@ const initialState = {
     timeout: null,
     dt: moment('201801011200', 'YYYYMMDDhhmm'),
     speed: 0,
+    money: INITIAL_MONEY,
+    famous: INITIAL_FASMOUS,
     showGroupInfo: null,
     showEventId: null,
     createEventId: null,
@@ -102,6 +108,22 @@ export default (state = initialState, action = {}) => {
                 ...state,
                 showGroupInfo: action.showGroupInfo
             };
+        case AT.eventResult:
+            console.log(action);
+            const volumeAffected = action.eventData.size * (action.promoResult + state.famous) / 10;
+            const moneyEarned = volumeAffected * action.eventData.price;
+            console.log(volumeAffected);
+            console.log(moneyEarned);
+            state = {
+                ...state,
+                famous: state.famous + (action.eventScores * volumeAffected * 0.1),
+                money: state.money + moneyEarned,
+                startEventId: null,
+                stopEventId: action.eventData.id,
+            };
+            console.log(state);
+            return state;
+
         default:
             return state
     }

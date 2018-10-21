@@ -9,6 +9,7 @@ import 'rodal/lib/rodal.css';
 import EventInfo from "./containers/EventInfo";
 import {eventAction, showGroupInfo} from "./controller";
 import Minigame from "./components/minigame/Minigame";
+import GroupInfo from "./containers/group/GroupView";
 
 const COMMON_MODAL_STYLE = {
     backgroundColor: "#161616",
@@ -36,7 +37,7 @@ class App extends Component {
                showCloseButton={false}
                customStyles={COMMON_MODAL_STYLE}>
             Информация о группе
-            <EventInfo/>
+            {showGroupInfo ? <GroupInfo group={group}/>: <div/>}
         </Rodal>
         <Rodal visible={!!startEventId}
                onClose={() => {}}
@@ -62,8 +63,8 @@ function mapStateToProps(state) {
     return {
         group: state.group,
         showEventId: state.showEventId,
-        startEventId: state.startEventId,
-        showGroupInfo: state.showGroupInfo
+        showGroupInfo: state.showGroupInfo,
+        startEventId: state.startEventId
     };
 }
 

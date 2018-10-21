@@ -3,3 +3,19 @@
     background-position: center;
     background-size: contain;
 }
+.avatar_1 {
+    background-image: url('/assets/images/group_1.svg');
+}
+
+.avatar_2 {
+    background-image: url('/assets/images/group_2.svg');
+}
+
+.avatar_1:hover {
+    background-image: url('/assets/images/group_1_hover.svg')!important;
+    transform: scale(1.5, 1.5);
+}
+.avatar_2:hover {
+    background-image: url('/assets/images/group_2_hover.svg')!important;
+    transform: scale(1.5, 1.5);
+}

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import * as PIXI from "pixi.js";
+import {eventResult} from "../../controller";
+import connect from "react-redux/es/connect/connect";
 
 
 class Minigame extends Component {
@@ -11,18 +13,19 @@ class Minigame extends Component {
         const lvlIncrementTime = 5000;
         const scaleSpeed = 0.005;
         const maxScale = 1.1;
-        const roundTime = 15000;
+        const roundTime = 5000;
 
         const state = {
             "scores": 0,
             "sprites": [],
+            "intervals": []
         };
 
         const app = new PIXI.Application(640, 360, { transparent: false });
 
         document.getElementById('game').appendChild(app.view);
 
-        const scoreText = new PIXI.Text('Score: 0');
+        const scoreText = new PIXI.Text('Очки: 0');
         scoreText.style = new PIXI.TextStyle({
             fill: 0xffffff
         });
@@ -35,11 +38,11 @@ class Minigame extends Component {
         background.position.x = 0;
         background.position.y = 0;
 
-        app.stage.addChild( background );
+        app.stage.addChild(background);
         app.stage.addChild(scoreText);
 
 
-        const setScore = value => {
+        const setScore = (value, color = false) => {
             scoreText.setText("Score: " + value)
         };
 
@@ -49,18 +52,19 @@ class Minigame extends Component {
         function onSpriteClick (e) {
             state.scores += 10;
             e.target.visible = false;
+            // scoreText.tint = 0x00ac00;
             // e.target.destroy({texture: true})
         }
 
         function onBottleClick (e) {
             state.scores -= 10;
             e.target.visible = false;
+            // scoreText.tint = 0xac0000;
             // e.target.destroy({texture: true})
         }
-        function sptiteFactopry(img, handler) {
+        function sptiteFactopry(img, handler, tint = 0xFFFFFF) {
 
             const sprite = PIXI.Sprite.fromImage(img);
-
 
             // Set the initial position
             sprite.anchor.set(0.5);
@@ -69,6 +73,7 @@ class Minigame extends Component {
             sprite.scale.x = 0.1;
             sprite.scale.y = 0.1;
             sprite.rotation = Math.random();
+            sprite.tint = tint;
 
             // Opt-in to interactivity
             sprite.interactive = true;
@@ -86,7 +91,6 @@ class Minigame extends Component {
         }
 
         app.ticker.add(function () {
-
             state.sprites.forEach(function(sprite, i, arr)
             {
                 sprite.scale.x += scaleSpeed;
@@ -97,28 +101,32 @@ class Minigame extends Component {
                 }
             });
             setScore(state.scores)
-
         });
 
-        function produceSprites(count, sprite, handler){
+        function produceSprites(count, sprite, handler, tint){
             for (var i = 0; i < count; i++) {
-                sptiteFactopry(sprite, handler)
+                sptiteFactopry(sprite, handler, tint)
             }
         }
 
         function incrementLevel(){
-            setInterval(produceSprites, 1500, 1, spriteImage, onSpriteClick);
-            setInterval(produceSprites, 2000, 1, bottleImage, onBottleClick);
+            state.intervals.push(setInterval(produceSprites, 1500, 1, spriteImage, onSpriteClick));
+            state.intervals.push(setInterval(produceSprites, 2000, 1, bottleImage, onBottleClick, 0xac0000));
         }
 
-        function stopGame(){
+        const stopGame = () => {
             state.sprites.forEach(function(sprite, i, arr)
             {
                 sprite.visible = false;
-                // sprite.destroy({texture: true})
             });
-            app.stop()
-        }
+
+            state.intervals.forEach(function(inteval, i, arr)
+            {
+                clearInterval(inteval);
+            });
+            app.stop();
+            this.props.eventResult(state.scores, this.props.startEventId, this.props.eventPromo)
+        };
 
         incrementLevel();
         setInterval(incrementLevel, lvlIncrementTime);
@@ -133,6 +141,16 @@ class Minigame extends Component {
     }
 }
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        eventResult: (a, b, c) => dispatch(eventResult(a, b, c)),
+    };
+};
 
-
-export default Minigame
+const  mapStateToProps = (state) => {
+    return {
+        startEventId: state.startEventId,
+        eventPromo: state.eventPromo
+    };
+};
+export default connect(mapStateToProps, mapDispatchToProps)(Minigame);
