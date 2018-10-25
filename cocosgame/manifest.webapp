@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "name": "RockBandTour",
+  "description": "RockBandTour",
+  "launch_path": "/index.html",
+  "icons": {
+    "128": "/res/icon.png"
+  },
+  "developer": {
+    "name": "Rock band tour developers",
+    "url": "https://github.com/totaki/rock-band-tour"
+  },
+  "default_locale": "en",
+  "installs_allowed_from": [
+    "*"
+  ],
+  "orientation": "portrait-primary",
+  "fullscreen": "true"
+}
