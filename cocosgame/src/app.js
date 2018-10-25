@@ -29,31 +29,77 @@ var HelloWorldLayer = cc.Layer.extend({
         //////////////////////////////
         // 1. super init first
         this._super();
-
-        /////////////////////////////
-        // 2. add a menu item with "X" image, which is clicked to quit the program
-        //    you may modify it.
-        // ask the window size
         var size = cc.winSize;
+        // console.log(size)
+        // backgroundLayer = new cc.LayerColor();
+        // // backgroundLayer.set(size.width, size.height);
+        // backgroundLayer.setContentSize(size.width, size.height);
+        // backgroundLayer.setColor(cc.color(88, 88, 88));
+        // this.addChild(backgroundLayer);
+        // backgroundLayer.setPosition(cc.p(0, 0));
+        // this.sprite = new cc.Sprite(res.HelloWorld_png);
+        // this.sprite.attr({
+        //     x: size.width / 2,
+        //     y: size.height / 2
+        // });
+        // this.addChild(this.sprite, 0);
+        //
+        // var label = new cc.LabelTTF("Hello World ololololo", "Arial", 38);
+        // label.x = size.width / 2;
+        // label.y = size.height / 2;
+        // label.setColor(cc.color(255, 255, 255))
+        // this.addChild(label)
+        //
+        // /////////////////////////////
+        // // 2. add a menu item with "X" image, which is clicked to quit the program
+        // //    you may modify it.
+        // // ask the window size
+        //
+        // /////////////////////////////
+        // // 3. add your codes below...
+        // // add a label shows "Hello World"
+        // // create and initialize a label
+        // var list = new ccui.ListView()
+        // list.setDirection(ccui.ScrollView.DIR_VERTICAL)
+        //
+        // list.setBounceEnabled(true)
+        // list.setContentSize(cc.size(1200, 200))
+        // list.setPosition(cc.p(size.width/2, size.height/2))
+        // // position the label on the center of the screen
+        // // add the label as a child to this layer
+        // console.log(list.x, list.y)
+        //
+        // this.addChild(list);
+        //
+        // for (var i=0; i < 10; i ++) {
+        //     var label = cc.LabelTTF('Ololol -> ' + i, "Arial", 38);
+        //     list.setPosition(cc.p(size.width/2 + i*10, size.height/2 + i*10))
+        //     // console.log(label)
+        //     // list.pushBackCustomItem(label)
+        //
+        //     this.addChild(label)
+        // }
 
-        /////////////////////////////
-        // 3. add your codes below...
-        // add a label shows "Hello World"
-        // create and initialize a label
-        var helloLabel = new cc.LabelTTF("Hello World", "Arial", 38);
-        // position the label on the center of the screen
-        helloLabel.x = size.width / 2;
-        helloLabel.y = size.height / 2 + 200;
-        // add the label as a child to this layer
-        this.addChild(helloLabel, 5);
 
         // add "HelloWorld" splash screen"
-        this.sprite = new cc.Sprite(res.HelloWorld_png);
-        this.sprite.attr({
-            x: size.width / 2,
-            y: size.height / 2
-        });
-        this.addChild(this.sprite, 0);
+        var listView = new ccui.ListView();
+        listView.setDirection(ccui.ScrollView.DIR_VERTICAL)
+        listView.setTouchEnabled(true)
+        listView.setBounceEnabled(true)
+        listView.setBackGroundImage(res.HelloWorld_png)
+        listView.setContentSize(cc.size(200, 400))
+        listView.setAnchorPoint(cc.p(0, 1))
+        listView.setPosition(cc.p(0, size.height))
+        this.addChild(listView)
+
+        for (var i = 1; i < 5; i++) {
+            var btn = new ccui.Button()
+            btn.setName('TextButton')
+            btn.setTouchEnabled(true)
+            btn.loadTextures(res.HelloWorld_png, res.HelloWorld_png, "")
+            listView.pushBackCustomItem(btn)
+        }
+
 
         return true;
     }
